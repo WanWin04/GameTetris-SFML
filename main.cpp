@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 
-#include "./Grid/Grid.hpp"
-#include "./Blocks/Blocks.cpp"
+#include "./GameState/GameState.hpp"
 
 int main()
 {
@@ -10,8 +9,7 @@ int main()
 
     sf::Color darkBlue(44, 44, 127, 255);
 
-    Grid grid;
-    LBlock lblock;
+    GameState game;
 
     while (window.isOpen())
     {
@@ -24,8 +22,7 @@ int main()
         }
 
         window.clear(darkBlue);
-        grid.Draw(window);
-        lblock.Draw(window);
+        game.Draw(window);
         window.display();
     }
 
