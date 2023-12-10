@@ -14,6 +14,7 @@ public:
     Grid();
     void Initialize();
     void Draw(sf::RenderWindow& window);
+    bool IsOutside(int rowObject, int columnObject);
 
     int grid[ROWS][COLUMNS];
 

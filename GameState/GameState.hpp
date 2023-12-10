@@ -18,6 +18,7 @@ public:
     void MoveLeft();
     void MoveRight();
     void MoveDown();
+    bool IsBlockOutside();
 
 private:
     Grid grid;

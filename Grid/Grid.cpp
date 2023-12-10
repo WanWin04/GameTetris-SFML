@@ -30,3 +30,8 @@ void Grid::Draw(sf::RenderWindow& window) {
         }
     }
 }
+
+bool Grid::IsOutside(int rowObject, int columnObject) {
+    if (rowObject > 0 && rowObject < numRows && columnObject > 0 && columnObject < numCols) return true;
+    return false;
+}
