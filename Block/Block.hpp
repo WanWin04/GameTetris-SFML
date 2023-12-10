@@ -20,11 +20,11 @@ public:
     std::map<int, std::vector<Position>> cells;
 
 private:
-    int cellSize;
-    int rotationState;
-    int rowShelf;
-    int columnShelf;
-    std::vector<sf::Color> colors;
+    int _cellSize;
+    int _rotationState;
+    int _rowShelf;
+    int _columnShelf;
+    std::vector<sf::Color> _colors;
 };
 
 #endif

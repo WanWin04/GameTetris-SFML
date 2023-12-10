@@ -1,17 +1,17 @@
 #include "Block.hpp"
 
-Block::Block() : cellSize(50), rotationState(0), rowShelf(0), columnShelf(0) {
-    colors = getColors(); 
+Block::Block() : _cellSize(50), _rotationState(0), _rowShelf(0), _columnShelf(0) {
+    _colors = getColors(); 
 }
 
 void Block::Draw(sf::RenderWindow& window) {
     std::vector<Position> states = getPositions();
 
     for (Position object : states) {
-        sf::Color cellColor = colors[ID];
-        float x = object.column * cellSize + 1;
-        float y = object.row * cellSize + 1;
-        sf::RectangleShape rect(sf::Vector2f(cellSize - 1, cellSize - 1));
+        sf::Color cellColor = _colors[ID];
+        float x = object.column * _cellSize + 1;
+        float y = object.row * _cellSize + 1;
+        sf::RectangleShape rect(sf::Vector2f(_cellSize - 1, _cellSize - 1));
         rect.setPosition(x, y);
         rect.setFillColor(cellColor);
 
@@ -20,16 +20,16 @@ void Block::Draw(sf::RenderWindow& window) {
 }
 
 void Block::FallBlock(int rows, int columns) {
-    rowShelf += rows;
-    columnShelf += columns;
+    _rowShelf += rows;
+    _columnShelf += columns;
 }
 
 std::vector<Position> Block::getPositions() {
-    std::vector<Position> states = cells[rotationState];
+    std::vector<Position> states = cells[_rotationState];
     std::vector<Position> changeStates;
 
     for (Position object : states) {
-        Position newPositon = Position(object.row + rowShelf, object.column + columnShelf);
+        Position newPositon = Position(object.row + _rowShelf, object.column + _columnShelf);
         changeStates.push_back(newPositon);
     }
 

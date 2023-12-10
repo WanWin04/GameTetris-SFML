@@ -19,10 +19,10 @@ public:
     int grid[ROWS][COLUMNS];
 
 private:
-    int numRows;
-    int numCols;
-    int cellSize;
-    std::vector<sf::Color> colors;
+    int _numRows;
+    int _numCols;
+    int _cellSize;
+    std::vector<sf::Color> _colors;
 };
 
 #endif

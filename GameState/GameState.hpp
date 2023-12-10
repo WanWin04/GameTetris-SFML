@@ -21,10 +21,10 @@ public:
     bool IsBlockOutside();
 
 private:
-    Grid grid;
-    Block truthBlock;
-    Block nextBlock;
-    std::vector<Block> blocks;
+    Grid _grid;
+    Block _truthBlock;
+    Block _nextBlock;
+    std::vector<Block> _blocks;
     sf::RenderWindow& window;
 };
 

@@ -2,24 +2,24 @@
 
 GameState::GameState(sf::RenderWindow& window) : window(window) {
     Grid grid;
-    blocks = { LBlock(), TBlock() };
+    _blocks = { LBlock(), TBlock() };
 
-    truthBlock = randomBlock();
-    nextBlock = randomBlock();
+    _truthBlock = randomBlock();
+    _nextBlock = randomBlock();
 }
 
 Block GameState::randomBlock() {
-    int randomItem = rand() % blocks.size();
+    int randomItem = rand() % _blocks.size();
 
-    Block block = blocks[randomItem];
-    blocks.erase(blocks.begin() + randomItem);
+    Block block = _blocks[randomItem];
+    _blocks.erase(_blocks.begin() + randomItem);
 
     return block;
 }
 
 void GameState::Draw(sf::RenderWindow& window) {
-   grid.Draw(window);
-   truthBlock.Draw(window);
+   _grid.Draw(window);
+   _truthBlock.Draw(window);
 }
 
 void GameState::HandleInput() {
@@ -43,29 +43,29 @@ void GameState::HandleInput() {
 }
 
 void GameState::MoveLeft() {
-    truthBlock.FallBlock(0, -1);
+    _truthBlock.FallBlock(0, -1);
 
-    if (!IsBlockOutside()) truthBlock.FallBlock(0, 1);
+    if (!IsBlockOutside()) _truthBlock.FallBlock(0, 1);
 }
 
 void GameState::MoveRight() {
-    truthBlock.FallBlock(0, 1);
+    _truthBlock.FallBlock(0, 1);
 
-    if (!IsBlockOutside()) truthBlock.FallBlock(0, -1);
+    if (!IsBlockOutside()) _truthBlock.FallBlock(0, -1);
 }
 
 void GameState::MoveDown() {
-    truthBlock.FallBlock(1, 0);
+    _truthBlock.FallBlock(1, 0);
 
-    if (!IsBlockOutside()) truthBlock.FallBlock(-1, 0);
+    if (!IsBlockOutside()) _truthBlock.FallBlock(-1, 0);
 }
 
 
 bool GameState::IsBlockOutside() {
-    std::vector<Position> states = truthBlock.getPositions();
+    std::vector<Position> states = _truthBlock.getPositions();
 
     for (Position object : states) {
-        if (grid.IsOutside(object.row, object.column)) return true;
+        if (_grid.IsOutside(object.row, object.column)) return true;
     }
 
     return false;
