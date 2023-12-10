@@ -13,6 +13,7 @@ class GameState {
 public:
     GameState(sf::RenderWindow& window);
     Block randomBlock();
+    std::vector<Block> getAllBlocks();
     void Draw(sf::RenderWindow& window);
     void HandleInput();
     void MoveLeft();

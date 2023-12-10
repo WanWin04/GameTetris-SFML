@@ -45,13 +45,13 @@ void GameState::HandleInput() {
 void GameState::MoveLeft() {
     _truthBlock.FallBlock(0, -1);
 
-    if (!IsBlockOutside()) _truthBlock.FallBlock(0, 1);
+    if (!IsBlockOutside()) _truthBlock.FallBlock(0, 2);
 }
 
 void GameState::MoveRight() {
     _truthBlock.FallBlock(0, 1);
 
-    if (!IsBlockOutside()) _truthBlock.FallBlock(0, -1);
+    if (!IsBlockOutside()) _truthBlock.FallBlock(0, -2);
 }
 
 void GameState::MoveDown() {
