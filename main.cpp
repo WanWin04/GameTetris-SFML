@@ -9,10 +9,11 @@ int main()
 
     sf::Color darkBlue(44, 44, 127, 255);
 
-    GameState game;
+    GameState game(window);
 
     while (window.isOpen())
     {
+        game.HandleInput();
         sf::Event event;
         while (window.pollEvent(event))
         {
