@@ -20,7 +20,6 @@ private:
     int numCols;
     int cellSize;
     std::vector<sf::Color> colors;
-    std::vector<sf::Color> getCellColors();
 };
 
 #endif

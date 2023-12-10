@@ -1,4 +1,5 @@
 #include "Grid.hpp"
+#include "../Colors/Colors.hpp"
 
 Grid::Grid() {
     numRows = 40;
@@ -40,16 +41,4 @@ void Grid::Draw(sf::RenderWindow& window) {
             window.draw(rect);
         }
     }
-}
-
-std::vector<sf::Color> Grid::getCellColors() {
-    sf::Color darkGrey(26, 31, 40, 255);
-    sf::Color green(47, 230, 23, 255);
-    sf::Color orange(226, 116, 17, 255);
-    sf::Color yellow(237, 234, 4, 255);
-    sf::Color purple(166, 0, 247, 255);
-    sf::Color cyan(21, 204, 209, 255);
-    sf::Color blue(13, 64, 216, 255);
-
-    return {darkGrey, green, orange, yellow, purple, cyan, blue};
 }

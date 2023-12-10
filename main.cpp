@@ -10,7 +10,8 @@ int main()
     sf::Color darkBlue(44, 44, 127, 255);
 
     Grid grid;
-    grid.Print();
+    grid.grid[0][0] = 1;
+    // grid.Print();
 
     while (window.isOpen())
     {
