@@ -45,27 +45,29 @@ void GameState::HandleInput() {
 void GameState::MoveLeft() {
     _truthBlock.FallBlock(0, -1);
 
-    if (!IsBlockOutside()) _truthBlock.FallBlock(0, 2);
+    if (IsBlockOutside()) _truthBlock.FallBlock(0, 1);
 }
 
 void GameState::MoveRight() {
     _truthBlock.FallBlock(0, 1);
 
-    if (!IsBlockOutside()) _truthBlock.FallBlock(0, -2);
+    if (IsBlockOutside()) _truthBlock.FallBlock(0, -1);
 }
 
 void GameState::MoveDown() {
     _truthBlock.FallBlock(1, 0);
 
-    if (!IsBlockOutside()) _truthBlock.FallBlock(-1, 0);
+    if (IsBlockOutside()) _truthBlock.FallBlock(-1, 0);
 }
-
 
 bool GameState::IsBlockOutside() {
     std::vector<Position> states = _truthBlock.getPositions();
 
     for (Position object : states) {
-        if (_grid.IsOutside(object.row, object.column)) return true;
+
+        if (_grid.IsOutside(object.row, object.column)) {
+            return true;
+        }
     }
 
     return false;

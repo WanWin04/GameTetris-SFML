@@ -16,6 +16,9 @@ public:
     void FallBlock(int rows, int columns);
     std::vector<Position> getPositions();
 
+    int getRowOffset() const;
+    int getColumnOffset() const;
+
     int ID;
     std::map<int, std::vector<Position>> cells;
 

@@ -35,3 +35,7 @@ std::vector<Position> Block::getPositions() {
 
     return changeStates;
 }
+
+int Block::getRowOffset() const { return _rowShelf; }
+
+int Block::getColumnOffset() const { return _columnShelf; }
