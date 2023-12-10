@@ -37,3 +37,10 @@ bool Grid::IsOutside(int rowObject, int columnObject) {
     }
     return false;
 }
+
+bool Grid::IsEmpty(int rowObject, int columnObject) {
+    if (grid[rowObject][columnObject] == 0) {
+        return true;
+    }
+    return false;
+}

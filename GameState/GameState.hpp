@@ -20,12 +20,16 @@ public:
     void MoveRight();
     void MoveDown();
     bool IsBlockOutside();
+    void RotatingBlock();
+    void SlideDown();
+    void LockBlock();
+    bool IsExistBlock();
 
     sf::RenderWindow& window;
 
 private:
     Grid _grid;
-    Block _truthBlock;
+    Block _currentBlock;
     Block _nextBlock;
     std::vector<Block> _blocks;
 };

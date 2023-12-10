@@ -39,3 +39,19 @@ std::vector<Position> Block::getPositions() {
 int Block::getRowOffset() const { return _rowShelf; }
 
 int Block::getColumnOffset() const { return _columnShelf; }
+
+void Block::RotateBlock() {
+    _rotationState++;
+
+    if (_rotationState == cells.size()) {
+        _rotationState = 0;
+    }
+}
+
+void Block::LimitRotation() {
+    _rotationState--;
+
+    if (_rotationState == -1) {
+        _rotationState = cells.size() - 1;
+    }
+}
