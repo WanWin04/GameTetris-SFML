@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-const int ROWS = 40;
-const int COLUMNS = 100;
+const int ROWS = 25;
+const int COLUMNS = 15;
 
 class Grid {
 public:

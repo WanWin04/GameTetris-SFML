@@ -20,12 +20,13 @@ public:
     void MoveDown();
     bool IsBlockOutside();
 
+    sf::RenderWindow& window;
+
 private:
     Grid _grid;
     Block _truthBlock;
     Block _nextBlock;
     std::vector<Block> _blocks;
-    sf::RenderWindow& window;
 };
 
 #endif

@@ -4,7 +4,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 1600), "GAME TETRIS");
+    sf::RenderWindow window(sf::VideoMode(750, 1250), "GAME TETRIS");
     window.setFramerateLimit(60);
 
     sf::Color darkBlue(44, 44, 127, 255);
