@@ -1,11 +1,16 @@
 #include <SFML/Graphics.hpp>
 
+#include "./Grid/Grid.hpp"
+
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1500, 1300), "GAME TETRIS");
+    sf::RenderWindow window(sf::VideoMode(800, 1600), "GAME TETRIS");
     window.setFramerateLimit(60);
 
     sf::Color darkBlue(44, 44, 127, 255);
+
+    Grid grid;
+    grid.Print();
 
     while (window.isOpen())
     {
@@ -18,6 +23,7 @@ int main()
         }
 
         window.clear(darkBlue);
+        grid.Draw(window);
         window.display();
     }
 
