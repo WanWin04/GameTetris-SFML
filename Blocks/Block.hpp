@@ -13,6 +13,8 @@ class Block {
 public:
     Block();
     void Draw(sf::RenderWindow& window);
+    void FallBlock(int rows, int columns);
+    std::vector<Position> getPositions();
 
     int ID;
     std::map<int, std::vector<Position>> cells;
@@ -20,6 +22,8 @@ public:
 private:
     int cellSize;
     int rotationState;
+    int rowShelf;
+    int columnShelf;
     std::vector<sf::Color> colors;
 };
 

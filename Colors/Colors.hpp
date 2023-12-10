@@ -14,6 +14,6 @@ extern const sf::Color purple;
 extern const sf::Color cyan;
 extern const sf::Color blue;
 
-std::vector<sf::Color> getCellColors();
+std::vector<sf::Color> getColors();
 
 #endif
