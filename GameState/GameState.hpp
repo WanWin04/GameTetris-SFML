@@ -4,7 +4,8 @@
 #include <random>
 
 #include "../Grid/Grid.hpp"
-#include "../Blocks/Block.hpp"
+#include "../Block/Block.hpp"
+#include "../TypeBlocks/TypeBlocks.hpp"
 
 class GameState {
 public:

@@ -2,7 +2,7 @@
 
 GameState::GameState() {
     Grid grid;
-    blocks = { LBlock() };
+    blocks = { LBlock(), TBlock() };
 
     truthBlock = randomBlock();
     nextBlock = randomBlock();
@@ -18,6 +18,6 @@ Block GameState::randomBlock() {
 }
 
 void GameState::Draw(sf::RenderWindow& window) {
-    grid.Draw(window);
-    truthBlock.Draw(window);
+   grid.Draw(window);
+   truthBlock.Draw(window);
 }
