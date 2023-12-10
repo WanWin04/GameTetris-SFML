@@ -6,14 +6,16 @@
 #include <iostream>
 #include <vector>
 
+const int ROWS = 40;
+const int COLUMNS = 100;
+
 class Grid {
 public:
     Grid();
     void Initialize();
     void Draw(sf::RenderWindow& window);
-    void Print();
 
-    int grid[40][100];
+    int grid[ROWS][COLUMNS];
 
 private:
     int numRows;
