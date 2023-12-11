@@ -13,10 +13,11 @@
 class GameState {
 public:
     GameState(sf::RenderWindow& window);
+    ~GameState();
 
-    Block randomBlock();
+    Block RandomBlock();
 
-    std::vector<Block> getAllBlocks();
+    std::vector<Block> GetAllBlocks();
 
     void Draw(sf::RenderWindow& window);
     void HandleInput();
@@ -37,6 +38,7 @@ private:
     Block _currentBlock;
     Block _nextBlock;
     std::vector<Block> _blocks;
+    bool gameOver;
 };
 
 #endif

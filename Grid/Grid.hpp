@@ -12,6 +12,7 @@ const int COLUMNS = 15;
 class Grid {
 public:
     Grid();
+    ~Grid();
     void Initialize();
     void Draw(sf::RenderWindow& window);
     void CleanRowGrid(int rowGrid);

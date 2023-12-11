@@ -39,7 +39,7 @@ int main()
         }
 
         if (EventActivation(0.5)) {
-            game.SlideDown();
+            game.MoveDown();
         }
 
         window.clear(darkBlue);

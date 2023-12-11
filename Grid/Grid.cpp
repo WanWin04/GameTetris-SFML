@@ -32,10 +32,10 @@ void Grid::Draw(sf::RenderWindow& window) {
 }
 
 bool Grid::IsOutside(int rowObject, int columnObject) {
-    if (rowObject < 0 || rowObject >= _numRows || columnObject < 0 || columnObject >= _numCols) {
-        return true;
+    if (rowObject >= 0 && rowObject < _numRows && columnObject >= 0 && columnObject < _numCols) {
+        return false;
     }
-    return false;
+    return true;
 }
 
 bool Grid::IsEmpty(int rowObject, int columnObject) {
@@ -45,9 +45,24 @@ bool Grid::IsEmpty(int rowObject, int columnObject) {
     return false;
 }
 
+int Grid::CleanFullRowGrid() {
+    int pefect = 0;
+
+    for (int rowClean = _numCols - 1; rowClean >= 0; --rowClean) {
+        if (IsFullBlock(rowClean)) {
+            CleanRowGrid(rowClean);
+            ++pefect;
+        }
+        else if (pefect > 0) {
+            CompensationRow(rowClean, pefect);
+        }
+    }
+    return pefect;
+}
+
 bool Grid::IsFullBlock(int rowGrid) {
-    for (int col = 0; col < _numRows; ++col) {
-        if (grid[rowGrid][col] == 0) {
+    for (int column = 0; column < _numCols; ++column) {
+        if (grid[rowGrid][column] == 0) {
             return false;
         }
     }
@@ -55,27 +70,14 @@ bool Grid::IsFullBlock(int rowGrid) {
 }
 
 void Grid::CleanRowGrid(int rowGrid) {
-    for (int col = 0; col < _numRows; ++col) {
-        grid[rowGrid][col] = 0;
+    for (int column = 0; column < _numCols; ++column) {
+        grid[rowGrid][column] = 0;
     }
 }
 
 void Grid::CompensationRow(int rowGrid, int numRows) {
-    for (int col = 0; col < _numCols; col++) {
-        grid[rowGrid + numRows][col] = grid[rowGrid][col];
-        grid[rowGrid][col] = 0;
+    for (int column = 0; column < _numCols; ++column) {
+        grid[rowGrid + numRows][column] = grid[rowGrid][column];
+        grid[rowGrid][column] = 0;
     }
-}
-
-int Grid::CleanFullRowGrid() {
-    int pefect = 0;
-
-    for (int rowClean = _numCols - 1; rowClean >= 0; rowClean--) {
-        if (IsFullBlock(rowClean)) {
-            CleanRowGrid(rowClean);
-            pefect++;
-        }
-        else if (pefect > 0) CompensationRow(rowClean, pefect);
-    }
-    return pefect;
 }

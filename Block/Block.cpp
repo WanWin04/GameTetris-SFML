@@ -5,7 +5,7 @@ Block::Block() : _cellSize(50), _rotationState(0), _rowShelf(0), _columnShelf(0)
 }
 
 void Block::Draw(sf::RenderWindow& window) {
-    std::vector<Position> states = getPositions();
+    std::vector<Position> states = GetPositions();
 
     for (Position object : states) {
         sf::Color cellColor = _colors[ID];
@@ -24,7 +24,7 @@ void Block::FallBlock(int rows, int columns) {
     _columnShelf += columns;
 }
 
-std::vector<Position> Block::getPositions() {
+std::vector<Position> Block::GetPositions() {
     std::vector<Position> states = cells[_rotationState];
     std::vector<Position> changeStates;
 
@@ -36,14 +36,10 @@ std::vector<Position> Block::getPositions() {
     return changeStates;
 }
 
-int Block::getRowOffset() const { return _rowShelf; }
-
-int Block::getColumnOffset() const { return _columnShelf; }
-
 void Block::RotateBlock() {
     _rotationState++;
 
-    if (_rotationState == cells.size()) {
+    if (_rotationState == (int)cells.size()) {
         _rotationState = 0;
     }
 }

@@ -12,16 +12,14 @@
 class Block {
 public:
     Block();
-    
+    virtual ~Block();
+
     void Draw(sf::RenderWindow& window);
     void FallBlock(int rows, int columns);
     void RotateBlock();
     void LimitRotation();
 
-    std::vector<Position> getPositions();
-
-    int getRowOffset() const;
-    int getColumnOffset() const;
+    std::vector<Position> GetPositions();
 
     // variables
     int ID;
