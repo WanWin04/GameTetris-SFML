@@ -61,7 +61,7 @@ void Grid::CleanRowGrid(int rowGrid) {
 }
 
 void Grid::CompensationRow(int rowGrid, int numRows) {
-    for (int col = 0; col < _numCols; ++col) {
+    for (int col = 0; col < _numCols; col++) {
         grid[rowGrid + numRows][col] = grid[rowGrid][col];
         grid[rowGrid][col] = 0;
     }
@@ -70,7 +70,7 @@ void Grid::CompensationRow(int rowGrid, int numRows) {
 int Grid::CleanFullRowGrid() {
     int pefect = 0;
 
-    for (int rowClean = _numCols - 1; rowClean >= 0; --rowClean) {
+    for (int rowClean = _numCols - 1; rowClean >= 0; rowClean--) {
         if (IsFullBlock(rowClean)) {
             CleanRowGrid(rowClean);
             pefect++;
