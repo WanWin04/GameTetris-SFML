@@ -24,6 +24,7 @@ public:
 
     // variables
     bool gameOver;
+    int score;
 
 private:
     sf::RenderWindow& window;
@@ -50,6 +51,9 @@ private:
 
     // Game Reset
     void GameReset();
+
+    // Update Score
+    void UpdateScores(int rowsCompleted, int bonus);
 };
 
 #endif

@@ -10,10 +10,13 @@
 #include "../Interface/Next/Next.hpp"
 #include "../Interface/GameOver/GameOver.hpp"
 #include "../DEFINITIONS.hpp"
-
 class Game {
 public:
     Game(int width, int height, std::string title);
+
+    void HandleEvents(sf::RenderWindow& window, GameState& gameState);
+    void HandleInput(GameState& gameState);
+    void UpdateAndDrawGameOver(sf::RenderWindow& window, GameState& gameState);
 
     bool EventActivation(double period);
 

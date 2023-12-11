@@ -1,7 +1,7 @@
 #include "UI.hpp"
 
 UserInterface::UserInterface(const sf::Vector2f& position) : _position(position) {
-    if (!_font.loadFromFile("Resources/Font/Font.ttf")) {
+    if (!_font.loadFromFile("Resources/Font/Marker-Felt.ttf")) {
         return;
     }
 

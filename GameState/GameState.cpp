@@ -9,6 +9,7 @@ GameState::GameState(sf::RenderWindow& window) : window(window) {
     _nextBlock = RandomBlock();
 
     gameOver = false;
+    score = 0;
 }
 
 void GameState::Draw(sf::RenderWindow& window) {
@@ -169,4 +170,9 @@ void GameState::GameReset() {
     _blocks = GetAllBlocks();
     _currentBlock = RandomBlock();
     _nextBlock = RandomBlock();
+}
+
+// Update Scores
+void GameState::UpdateScores(int rowsCompleted, int bonus) {
+    
 }

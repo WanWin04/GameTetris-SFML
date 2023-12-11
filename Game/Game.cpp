@@ -12,15 +12,8 @@ Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138,
 
     while (window.isOpen())
     {
-        gameState.HandleInput();
-        
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-        }
+        HandleInput(gameState);
+        HandleEvents(window, gameState);
 
         if (EventActivation(TIME_DOWN)) {
             gameState.MoveDown();
@@ -28,15 +21,34 @@ Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138,
 
         window.clear(_lightGreen);
         gameState.Draw(window);
+
         window.draw(_score);
         window.draw(_next);
 
         if (gameState.gameOver) {
-            window.draw(_gameOver);
+            UpdateAndDrawGameOver(window, gameState);
         }
 
         window.display();
     }
+}
+
+void Game::HandleEvents(sf::RenderWindow& window, GameState& gameState) {
+    sf::Event event;
+    while (window.pollEvent(event))
+    {
+        if (event.type == sf::Event::Closed) {
+            window.close();
+        }
+    }
+}
+
+void Game::HandleInput(GameState& gameState) {
+    gameState.HandleInput();
+}
+
+void Game::UpdateAndDrawGameOver(sf::RenderWindow& window, GameState& gameState) {
+    window.draw(_gameOver);
 }
 
 bool Game::EventActivation(double period) {

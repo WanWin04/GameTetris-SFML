@@ -17,10 +17,12 @@
 #define WIDTH_SCORE 1000
 #define HEIGHT_SCORE 50
 
-#define WIDTH_NEXT 910
+#define WIDTH_NEXT 930
 #define HEIGHT_NEXT 500
 
-#define WIDTH_GAMEOVER 905
+#define WIDTH_GAMEOVER 930
 #define HEIGHT_GAMEOVER 900
+
+#define DELTA_TIME 0.2
 
 #endif
