@@ -9,7 +9,7 @@
 #include "../Interface/Score/Score.hpp"
 #include "../Interface/Next/Next.hpp"
 #include "../Interface/GameOver/GameOver.hpp"
-#include "../DEFINITIONS.hpp"
+#include "../DEFINITIONS/DEFINITIONS.hpp"
 class Game {
 public:
     Game(int width, int height, std::string title);

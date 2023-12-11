@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../DEFINITIONS.hpp"
+#include "../DEFINITIONS/DEFINITIONS.hpp"
 
 class Grid {
 public:
@@ -14,6 +14,8 @@ public:
 
     void Initialize();
     void Draw(sf::RenderWindow& window);
+
+    void Print();
 
     int CleanFullRowGrid();
 

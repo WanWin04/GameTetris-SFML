@@ -5,7 +5,7 @@
 
 #include <string>
 
-#include "../../DEFINITIONS.hpp"
+#include "../../DEFINITIONS/DEFINITIONS.hpp"
 
 class AnimatedText : public sf::Drawable {
 public:

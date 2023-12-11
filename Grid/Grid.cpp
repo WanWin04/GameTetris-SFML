@@ -16,7 +16,7 @@ void Grid::Initialize() {
 
 void Grid::Draw(sf::RenderWindow& window) {
     for (int row = 0; row < _numRows; ++row) {
-        for (int col = 0; col < _numCols; ++ col) {
+        for (int col = 0; col < _numCols; ++col) {
             int cellValue = grid[row][col];
             
             sf::Color cellColor = _colors[cellValue];
@@ -28,6 +28,15 @@ void Grid::Draw(sf::RenderWindow& window) {
 
             window.draw(rect);
         }
+    }
+}
+
+void Grid::Print() {
+    for (int row = 0; row < _numRows; ++row) {
+        for (int col = 0; col < _numCols; ++ col) {
+            std::cout << grid[row][col] << " ";
+        }
+        std::cout << std::endl;
     }
 }
 
@@ -48,7 +57,7 @@ bool Grid::IsEmpty(int rowObject, int columnObject) {
 int Grid::CleanFullRowGrid() {
     int pefect = 0;
 
-    for (int rowClean = _numCols - 1; rowClean > 0; --rowClean) {
+    for (int rowClean = _numRows - 1; rowClean >= 0; --rowClean) {
         if (IsFullBlock(rowClean)) {
             CleanRowGrid(rowClean);
             ++pefect;

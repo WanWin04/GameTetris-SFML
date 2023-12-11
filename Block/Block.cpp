@@ -32,7 +32,6 @@ std::vector<Position> Block::GetPositions() {
         Position newPositon = Position(object.row + _rowShelf, object.column + _columnShelf);
         changeStates.push_back(newPositon);
     }
-
     return changeStates;
 }
 
