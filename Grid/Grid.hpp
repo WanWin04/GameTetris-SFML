@@ -16,6 +16,10 @@ public:
     void Draw(sf::RenderWindow& window);
     bool IsOutside(int rowObject, int columnObject);
     bool IsEmpty(int rowObject, int columnObject);
+    bool IsFullBlock(int rowGrid);
+    void CleanRowGrid(int rowGrid);
+    void CompensationRow(int rowGrid, int numRows);
+    int CleanFullRowGrid();
 
     int grid[ROWS][COLUMNS];
 

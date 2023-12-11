@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include <random>
+#include <ctime>
 
 #include "../Grid/Grid.hpp"
 #include "../Block/Block.hpp"

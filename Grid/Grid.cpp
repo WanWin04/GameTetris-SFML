@@ -44,3 +44,38 @@ bool Grid::IsEmpty(int rowObject, int columnObject) {
     }
     return false;
 }
+
+bool Grid::IsFullBlock(int rowGrid) {
+    for (int col = 0; col < _numRows; ++col) {
+        if (grid[rowGrid][col] == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void Grid::CleanRowGrid(int rowGrid) {
+    for (int col = 0; col < _numRows; ++col) {
+        grid[rowGrid][col] = 0;
+    }
+}
+
+void Grid::CompensationRow(int rowGrid, int numRows) {
+    for (int col = 0; col < _numCols; ++col) {
+        grid[rowGrid + numRows][col] = grid[rowGrid][col];
+        grid[rowGrid][col] = 0;
+    }
+}
+
+int Grid::CleanFullRowGrid() {
+    int pefect = 0;
+
+    for (int rowClean = _numCols - 1; rowClean >= 0; --rowClean) {
+        if (IsFullBlock(rowClean)) {
+            CleanRowGrid(rowClean);
+            pefect++;
+        }
+        else if (pefect > 0) CompensationRow(rowClean, pefect);
+    }
+    return pefect;
+}

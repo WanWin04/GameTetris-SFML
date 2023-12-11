@@ -2,13 +2,19 @@
 
 GameState::GameState(sf::RenderWindow& window) : window(window) {
     Grid grid;
-    _blocks = { LBlock(), JBlock(), IBlock(), OBlock(), SBlock(), TBlock(), ZBlock() };
+    _blocks = getAllBlocks();
 
     _currentBlock = randomBlock();
     _nextBlock = randomBlock();
 }
 
+std::vector<Block> GameState::getAllBlocks() {
+    return { LBlock(), JBlock(), IBlock(), OBlock(), SBlock(), TBlock(), ZBlock() };
+}
+
 Block GameState::randomBlock() {
+    if (_blocks.empty()) _blocks = getAllBlocks();
+
     int randomItem = rand() % _blocks.size();
 
     Block block = _blocks[randomItem];
@@ -48,19 +54,25 @@ void GameState::HandleInput() {
 void GameState::MoveLeft() {
     _currentBlock.FallBlock(0, -1);
 
-    if (IsBlockOutside()) _currentBlock.FallBlock(0, 1);
+    if (IsBlockOutside() || !IsExistBlock()) {
+        _currentBlock.FallBlock(0, 1);
+    }
 }
 
 void GameState::MoveRight() {
     _currentBlock.FallBlock(0, 1);
 
-    if (IsBlockOutside()) _currentBlock.FallBlock(0, -1);
+    if (IsBlockOutside() || !IsExistBlock()) {
+        _currentBlock.FallBlock(0, -1);
+    } 
 }
 
 void GameState::MoveDown() {
     _currentBlock.FallBlock(1, 0);
 
-    if (IsBlockOutside()) _currentBlock.FallBlock(-1, 0);
+    if (IsBlockOutside() || !IsExistBlock()) {
+        _currentBlock.FallBlock(-1, 0);
+    }
 }
 
 bool GameState::IsBlockOutside() {
@@ -87,7 +99,7 @@ void GameState::RotatingBlock() {
 void GameState::SlideDown() {
     _currentBlock.FallBlock(1, 0);
 
-    if (IsBlockOutside()) {
+    if (IsBlockOutside() || !IsExistBlock()) {
         _currentBlock.FallBlock(-1, 0);
         LockBlock();
     }
@@ -101,15 +113,16 @@ void GameState::LockBlock() {
     }
     _currentBlock = _nextBlock;
     _nextBlock = randomBlock();
+    _grid.CleanFullRowGrid();
 }
 
-// bool GameState::IsExistBlock() {
-//     std::vector<Position> states = _currentBlock.getPositions();
+bool GameState::IsExistBlock() {
+    std::vector<Position> states = _currentBlock.getPositions();
 
-//     for (Position object : states) {
-//         if (_grid.IsEmpty(object.row, object.column == false)) {
-//             return false;
-//         }
-//     }
-//     return true;
-// }
+    for (Position object : states) {
+        if (!_grid.IsEmpty(object.row, object.column)) {
+            return false;
+        }
+    }
+    return true;
+}
