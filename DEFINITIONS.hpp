@@ -1,5 +1,5 @@
-#ifndef DEFNITIONS_HPP
-#define DEFNITIONS_HPP
+#ifndef DEFINITIONS_HPP
+#define DEFINITIONS_HPP
 
 #define SCREEN_WIDTH 1500
 #define SCREEN_HEIGHT 1250
@@ -19,5 +19,8 @@
 
 #define WIDTH_NEXT 900
 #define HEIGHT_NEXT 500
+
+#define WIDTH_GAMEOVER 900
+#define HEIGHT_GAMEOVER 900
 
 #endif

@@ -1,11 +1,11 @@
-#ifndef NEXTINTERFACE_HPP
-#define NEXTINTERFACE_HPP
+#ifndef NEXT_HPP
+#define NEXT_HPP
 
 #include "../UI/UI.hpp"
 
-class NextInterface : public UserInterface {
+class Next : public UserInterface {
 public:
-    NextInterface(const sf::Vector2f& position = sf::Vector2f(WIDTH_NEXT, HEIGHT_NEXT));
+    Next(const sf::Vector2f& position = sf::Vector2f(WIDTH_NEXT, HEIGHT_NEXT));
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 

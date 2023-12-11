@@ -1,19 +1,18 @@
 #include "Game.hpp"
 
+#include <iostream>
+
 double keyUpdateTime = 0;
 
 Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138, 1) {
     sf::RenderWindow window(sf::VideoMode(width, height), title);
     window.setFramerateLimit(FRAME_LIMIT);
 
-    ScoreInterface score;
-    NextInterface next;
-
-    GameState game(window);
+    GameState gameState(window);
 
     while (window.isOpen())
     {
-        game.HandleInput();
+        gameState.HandleInput();
         
         sf::Event event;
         while (window.pollEvent(event))
@@ -24,13 +23,18 @@ Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138,
         }
 
         if (EventActivation(TIME_DOWN)) {
-            game.MoveDown();
+            gameState.MoveDown();
         }
 
         window.clear(_lightGreen);
-        game.Draw(window);
-        window.draw(score);
-        window.draw(next);
+        gameState.Draw(window);
+        window.draw(_score);
+        window.draw(_next);
+
+        if (gameState.gameOver) {
+            window.draw(_gameOver);
+        }
+
         window.display();
     }
 }
