@@ -6,8 +6,8 @@
 #include <string>
 
 #include "../GameState/GameState.hpp"
-#include "../ScoreInterface/ScoreInterface.hpp"
-#include "../NextInterface/NextInterface.hpp"
+#include "../Interface/ScoreInterface/ScoreInterface.hpp"
+#include "../Interface/NextInterface/NextInterface.hpp"
 #include "../DEFNITIONS.hpp"
 
 class Game {
