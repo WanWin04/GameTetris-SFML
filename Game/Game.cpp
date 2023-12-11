@@ -2,7 +2,7 @@
 
 double keyUpdateTime = 0;
 
-Game::Game(int width, int height, std::string title) : _darkBlue(44, 44, 127, 255) {
+Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138, 1) {
     sf::RenderWindow window(sf::VideoMode(width, height), title);
     window.setFramerateLimit(FRAME_LIMIT);
 
@@ -27,7 +27,7 @@ Game::Game(int width, int height, std::string title) : _darkBlue(44, 44, 127, 25
             game.MoveDown();
         }
 
-        window.clear(_darkBlue);
+        window.clear(_lightGreen);
         game.Draw(window);
         window.draw(score);
         window.draw(next);

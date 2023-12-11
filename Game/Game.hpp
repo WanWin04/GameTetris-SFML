@@ -6,9 +6,9 @@
 #include <string>
 
 #include "../GameState/GameState.hpp"
-#include "../Interface/ScoreInterface/ScoreInterface.hpp"
-#include "../Interface/NextInterface/NextInterface.hpp"
-#include "../DEFNITIONS.hpp"
+#include "../Interface/Score/Score.hpp"
+#include "../Interface/Next/Next.hpp"
+#include "../DEFINITIONS.hpp"
 
 class Game {
 public:
@@ -18,7 +18,7 @@ public:
 
 private:
     double currentTime;
-    sf::Color _darkBlue;
+    sf::Color _lightGreen;
 };
 
 #endif

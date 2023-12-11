@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../DEFNITIONS.hpp"
+#include "../../DEFINITIONS.hpp"
 
 class UserInterface : public sf::Drawable {
 public:

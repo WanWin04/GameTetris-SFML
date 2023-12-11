@@ -1,4 +1,4 @@
-#include "NextInterface.hpp"
+#include "Next.hpp"
 
 NextInterface::NextInterface(const sf::Vector2f& position) : UserInterface(position) {
     _text.setString("NEXT BLOCK");

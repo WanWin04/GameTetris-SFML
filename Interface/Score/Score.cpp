@@ -1,4 +1,4 @@
-#include "ScoreInterface.hpp"
+#include "Score.hpp"
 
 ScoreInterface::ScoreInterface(const sf::Vector2f& position) : UserInterface(position) {
     _text.setString("SCORE");

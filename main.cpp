@@ -1,5 +1,5 @@
 #include "./Game/Game.hpp"
-#include "DEFNITIONS.hpp"
+#include "DEFINITIONS.hpp"
 
 int main() {
     Game(SCREEN_WIDTH, SCREEN_HEIGHT, "GAME TETRIS");

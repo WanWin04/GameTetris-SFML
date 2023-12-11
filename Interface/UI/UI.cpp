@@ -1,4 +1,4 @@
-#include "UserInterface.hpp"
+#include "UI.hpp"
 
 UserInterface::UserInterface(const sf::Vector2f& position) : _position(position) {
     if (!_font.loadFromFile("Resources/Font/monogram.ttf")) {

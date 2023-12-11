@@ -1,7 +1,7 @@
 #ifndef NEXTINTERFACE_HPP
 #define NEXTINTERFACE_HPP
 
-#include "../UserInterface/UserInterface.hpp"
+#include "../UI/UI.hpp"
 
 class NextInterface : public UserInterface {
 public:

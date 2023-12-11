@@ -8,7 +8,7 @@
 
 #include "../Position/Position.hpp"
 #include "../Colors/Colors.hpp"
-#include "../DEFNITIONS.hpp"
+#include "../DEFINITIONS.hpp"
 
 class Block {
 public:
