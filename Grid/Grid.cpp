@@ -48,7 +48,7 @@ bool Grid::IsEmpty(int rowObject, int columnObject) {
 int Grid::CleanFullRowGrid() {
     int pefect = 0;
 
-    for (int rowClean = _numCols - 1; rowClean >= 0; --rowClean) {
+    for (int rowClean = _numCols - 1; rowClean > 0; --rowClean) {
         if (IsFullBlock(rowClean)) {
             CleanRowGrid(rowClean);
             ++pefect;

@@ -16,12 +16,12 @@ public:
 
     void Draw(sf::RenderWindow& window);
 
+    std::vector<Position> GetPositions();
+
     // attribute
     void FallBlock(int rows, int columns);
     void RotateBlock();
     void LimitRotation();
-
-    std::vector<Position> GetPositions();
 
     // variables
     int ID;

@@ -11,6 +11,11 @@ GameState::GameState(sf::RenderWindow& window) : window(window) {
     gameOver = false;
 }
 
+void GameState::Draw(sf::RenderWindow& window) {
+   _grid.Draw(window);
+   _currentBlock.Draw(window);
+}
+
 // Random Block
 std::vector<Block> GameState::GetAllBlocks() {
     return { LBlock(), JBlock(), IBlock(), OBlock(), SBlock(), TBlock(), ZBlock() };
@@ -28,32 +33,50 @@ Block GameState::RandomBlock() {
 }
 // End of Random Block
 
-void GameState::Draw(sf::RenderWindow& window) {
-   _grid.Draw(window);
-   _currentBlock.Draw(window);
-}
-
 // Handle Input 
 void GameState::HandleInput() {
     sf::Event event;
     while (window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed) {
-            window.close();
+        switch (event.type) {
+            case sf::Event::Closed:
+                window.close();
+                break;
+
+            case sf::Event::KeyPressed:
+                if (gameOver) {
+                    gameOver = false;
+                    GameReset();
+                } else {
+                    HandleGameInput(event.key.code);
+                }
+                break;
+
+            default:
+                break;
         }
-        else if (event.type == sf::Event::KeyPressed) {
-            if (event.key.code == sf::Keyboard::Left) {
-                MoveLeft();
-            }
-            else if (event.key.code == sf::Keyboard::Right) {
-                MoveRight();
-            }
-            else if (event.key.code == sf::Keyboard::Up) {
-                RotatingBlock();
-            }
-            else if (event.key.code == sf::Keyboard::Down) {
-                MoveDown();
-            }
-        }
+    }
+}
+
+void GameState::HandleGameInput(sf::Keyboard::Key key) {
+    switch (key) {
+        case sf::Keyboard::Left:
+            MoveLeft();
+            break;
+
+        case sf::Keyboard::Right:
+            MoveRight();
+            break;
+
+        case sf::Keyboard::Up:
+            RotatingBlock();
+            break;
+
+        case sf::Keyboard::Down:
+            MoveDown();
+            break;
+
+        default:
+            break;
     }
 }
 // End of Handle Input  
@@ -137,4 +160,13 @@ bool GameState::IsExistBlock() {
     }
     return true;
 }
-// end of Handle Block 
+// End of Handle Block 
+
+// Game Reset
+void GameState::GameReset() {
+    _grid.Initialize();
+
+    _blocks = GetAllBlocks();
+    _currentBlock = RandomBlock();
+    _nextBlock = RandomBlock();
+}

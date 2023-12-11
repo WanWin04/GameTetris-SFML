@@ -14,24 +14,16 @@ class GameState {
 public:
     GameState(sf::RenderWindow& window);
 
-    // Random Block
-    Block RandomBlock();
-    std::vector<Block> GetAllBlocks();
-
     void Draw(sf::RenderWindow& window);
 
     // Handle Input 
     void HandleInput();
 
     // Handle Block
-    void MoveLeft();
-    void MoveRight();
     void MoveDown();
-    void RotatingBlock();
-    void LockBlock();
 
-    bool IsBlockOutside();
-    bool IsExistBlock();
+    // variables
+    bool gameOver;
 
 private:
     sf::RenderWindow& window;
@@ -39,7 +31,25 @@ private:
     Block _currentBlock;
     Block _nextBlock;
     std::vector<Block> _blocks;
-    bool gameOver;
+
+    // Random Block
+    Block RandomBlock();
+    std::vector<Block> GetAllBlocks();
+
+    // Handle Input 
+    void HandleGameInput(sf::Keyboard::Key key);
+
+    // Handle Block
+    void MoveLeft();
+    void MoveRight();
+    void RotatingBlock();
+    void LockBlock();
+
+    bool IsBlockOutside();
+    bool IsExistBlock();
+
+    // Game Reset
+    void GameReset();
 };
 
 #endif

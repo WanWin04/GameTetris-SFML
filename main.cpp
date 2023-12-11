@@ -1,5 +1,3 @@
-#include <SFML/Graphics.hpp>
-
 #include "./Game/Game.hpp"
 #include "DEFNITIONS.hpp"
 

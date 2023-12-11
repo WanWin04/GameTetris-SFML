@@ -24,22 +24,6 @@ void Block::FallBlock(int rows, int columns) {
     _columnShelf += columns;
 }
 
-void Block::RotateBlock() {
-    _rotationState++;
-
-    if (_rotationState == (int)cells.size()) {
-        _rotationState = 0;
-    }
-}
-
-void Block::LimitRotation() {
-    _rotationState--;
-
-    if (_rotationState == -1) {
-        _rotationState = cells.size() - 1;
-    }
-}
-
 std::vector<Position> Block::GetPositions() {
     std::vector<Position> states = cells[_rotationState];
     std::vector<Position> changeStates;
@@ -50,4 +34,20 @@ std::vector<Position> Block::GetPositions() {
     }
 
     return changeStates;
+}
+
+void Block::RotateBlock() {
+    ++_rotationState;
+
+    if (_rotationState == (int)cells.size()) {
+        _rotationState = 0;
+    }
+}
+
+void Block::LimitRotation() {
+    --_rotationState;
+
+    if (_rotationState == -1) {
+        _rotationState = cells.size() - 1;
+    }
 }
