@@ -1,8 +1,8 @@
 #include "UI.hpp"
 
 UserInterface::UserInterface(const sf::Vector2f& position) : _position(position) {
-    if (!_font.loadFromFile("Resources/Font/monogram.ttf")) {
-        std::cout << "Could not load font" << std::endl;
+    if (!_font.loadFromFile("Resources/Font/Font.ttf")) {
+        return;
     }
 
     _text.setFont(_font);

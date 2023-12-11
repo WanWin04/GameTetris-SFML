@@ -12,15 +12,15 @@
 
 #define TIME_DOWN 0.5
 
-#define CHARACTER_SIZE 64
+#define CHARACTER_SIZE 35
 
 #define WIDTH_SCORE 1000
-#define HEIGHT_SCORE 15
+#define HEIGHT_SCORE 50
 
-#define WIDTH_NEXT 900
+#define WIDTH_NEXT 910
 #define HEIGHT_NEXT 500
 
-#define WIDTH_GAMEOVER 900
+#define WIDTH_GAMEOVER 905
 #define HEIGHT_GAMEOVER 900
 
 #endif
