@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "./Game/Game.hpp"
-#include "Defnitions.hpp"
+#include "DEFNITIONS.hpp"
 
 int main() {
     Game(SCREEN_WIDTH, SCREEN_HEIGHT, "GAME TETRIS");
