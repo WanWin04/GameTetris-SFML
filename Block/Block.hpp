@@ -8,13 +8,15 @@
 
 #include "../Position/Position.hpp"
 #include "../Colors/Colors.hpp"
+#include "../DEFNITIONS.hpp"
 
 class Block {
 public:
     Block();
-    virtual ~Block();
 
     void Draw(sf::RenderWindow& window);
+
+    // attribute
     void FallBlock(int rows, int columns);
     void RotateBlock();
     void LimitRotation();

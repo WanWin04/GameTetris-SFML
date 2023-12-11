@@ -11,6 +11,7 @@ GameState::GameState(sf::RenderWindow& window) : window(window) {
     gameOver = false;
 }
 
+// Random Block
 std::vector<Block> GameState::GetAllBlocks() {
     return { LBlock(), JBlock(), IBlock(), OBlock(), SBlock(), TBlock(), ZBlock() };
 }
@@ -25,12 +26,14 @@ Block GameState::RandomBlock() {
 
     return block;
 }
+// End of Random Block
 
 void GameState::Draw(sf::RenderWindow& window) {
    _grid.Draw(window);
    _currentBlock.Draw(window);
 }
 
+// Handle Input 
 void GameState::HandleInput() {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -53,7 +56,9 @@ void GameState::HandleInput() {
         }
     }
 }
+// End of Handle Input  
 
+// Handle Block 
 void GameState::MoveLeft() {
     if (!gameOver) {
         _currentBlock.FallBlock(0, -1);
@@ -85,17 +90,6 @@ void GameState::MoveDown() {
     }
 }
 
-bool GameState::IsBlockOutside() {
-    std::vector<Position> states = _currentBlock.GetPositions();
-
-    for (Position object : states) {
-        if (_grid.IsOutside(object.row, object.column)) {
-            return true;
-        }
-    }
-    return false;
-}
-
 void GameState::RotatingBlock() {
     if (!gameOver) {
         _currentBlock.RotateBlock();
@@ -122,6 +116,17 @@ void GameState::LockBlock() {
     _grid.CleanFullRowGrid();
 }
 
+bool GameState::IsBlockOutside() {
+    std::vector<Position> states = _currentBlock.GetPositions();
+
+    for (Position object : states) {
+        if (_grid.IsOutside(object.row, object.column)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 bool GameState::IsExistBlock() {
     std::vector<Position> states = _currentBlock.GetPositions();
 
@@ -132,3 +137,4 @@ bool GameState::IsExistBlock() {
     }
     return true;
 }
+// end of Handle Block 

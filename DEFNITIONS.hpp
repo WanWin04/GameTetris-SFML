@@ -1,0 +1,13 @@
+#ifndef DEFNITIONS_HPP
+#define DEFNITIONS_HPP
+
+#define SCREEN_WIDTH 750
+#define SCREEN_HEIGHT 1250
+
+#define FRAME_LIMIT 60
+
+#define NUMBER_ROWS 25
+#define NUMBER_COLUMNS 15
+#define CELL_SIZE 50
+
+#endif

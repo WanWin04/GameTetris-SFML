@@ -1,7 +1,7 @@
 #include "Grid.hpp"
 #include "../Colors/Colors.hpp"
 
-Grid::Grid() : _numRows(25), _numCols(15), _cellSize(50) {
+Grid::Grid() : _numRows(NUMBER_ROWS), _numCols(NUMBER_COLUMNS), _cellSize(CELL_SIZE) {
     Initialize();
     _colors = getColors();
 }

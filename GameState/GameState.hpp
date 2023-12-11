@@ -13,27 +13,28 @@
 class GameState {
 public:
     GameState(sf::RenderWindow& window);
-    ~GameState();
 
+    // Random Block
     Block RandomBlock();
-
     std::vector<Block> GetAllBlocks();
 
     void Draw(sf::RenderWindow& window);
+
+    // Handle Input 
     void HandleInput();
+
+    // Handle Block
     void MoveLeft();
     void MoveRight();
     void MoveDown();
-    bool IsBlockOutside();
     void RotatingBlock();
-    void SlideDown();
     void LockBlock();
+
+    bool IsBlockOutside();
     bool IsExistBlock();
 
-    // variables
-    sf::RenderWindow& window;
-
 private:
+    sf::RenderWindow& window;
     Grid _grid;
     Block _currentBlock;
     Block _nextBlock;

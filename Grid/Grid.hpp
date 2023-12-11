@@ -6,13 +6,12 @@
 #include <iostream>
 #include <vector>
 
-const int ROWS = 25;
-const int COLUMNS = 15;
+#include "../DEFNITIONS.hpp"
 
 class Grid {
 public:
     Grid();
-    ~Grid();
+
     void Initialize();
     void Draw(sf::RenderWindow& window);
     void CleanRowGrid(int rowGrid);
@@ -25,7 +24,7 @@ public:
     bool IsFullBlock(int rowGrid);
 
     // variables
-    int grid[ROWS][COLUMNS];
+    int grid[NUMBER_ROWS][NUMBER_COLUMNS];
 
 private:
     int _numRows;
