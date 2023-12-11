@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+main.exe
+
 # dependencies
 /node_modules
 /.pnp
@@ -47,7 +49,6 @@ build/
 *.lo
 *.o
 *.obj
-*.exe
 
 # Precompiled Headers
 *.gch
