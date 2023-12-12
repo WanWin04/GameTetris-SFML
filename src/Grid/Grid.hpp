@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../DEFINITIONS/DEFINITIONS.hpp"
+#include "../../global/DEFINITIONS.hpp"
 
 class Grid {
 public:
