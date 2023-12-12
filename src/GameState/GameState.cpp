@@ -194,10 +194,19 @@ void GameState::UpdateScores(int rowsCompleted, int bonus) {
 
     case 3:
         score += 500;
+        break;
+
+    case 4:
+        score += 700;
+        break;
+
+    case 5:
+        score += 900;
+        break;
     
     default:
         break;
     }
 
-    score += rowsCompleted;
+    score += bonus;
 }

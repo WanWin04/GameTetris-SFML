@@ -1,13 +1,20 @@
-// #ifndef UPDATESCORE_HPP
-// #define UPDATESCORE_HPP
+#ifndef UPDATESCORE_HPP
+#define UPDATESCORE_HPP
 
-// #include "../UI/UI.hpp"
+#include "../UI/UI.hpp"
 
-// class UpdateScore : public UserInterface {
-// public:
-//     UpdateScore(const sf::Vector2f& position = sf::Vector2f(WIDTH_UPDATE_SCORE, HEIGHT_UPDATE_SCORE));
+#include <string>
 
-//     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-// };
+class UpdateScore : public UserInterface {
+public:
+    UpdateScore(const sf::Vector2f& position = sf::Vector2f(WIDTH_UPDATE_SCORE, HEIGHT_UPDATE_SCORE));
 
-// #endif
+    void Update(int newScore);
+
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+private:
+    int _score;
+};
+
+#endif

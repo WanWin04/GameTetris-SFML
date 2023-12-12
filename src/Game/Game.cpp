@@ -19,11 +19,15 @@ Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138,
             gameState.MoveDown();
         }
 
+        _updateScore.Update(gameState.score);
+
         window.clear(_lightGreen);
         gameState.Draw(window);
 
         window.draw(_score);
         window.draw(_next);
+
+        window.draw(_updateScore);
 
         if (gameState.gameOver) {
             UpdateAndDrawGameOver(window, gameState);

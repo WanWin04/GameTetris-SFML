@@ -8,6 +8,7 @@
 #include "../GameState/GameState.hpp"
 #include "../Interface/Score/Score.hpp"
 #include "../Interface/Next/Next.hpp"
+#include "../Interface/UpdateScore/UpdateScore.hpp"
 #include "../Interface/GameOver/GameOver.hpp"
 #include "../../global/DEFINITIONS.hpp"
 class Game {
@@ -25,6 +26,7 @@ private:
     sf::Color _lightGreen;
     Score _score;
     Next _next;
+    UpdateScore _updateScore;
     GameOver _gameOver;
 };
 
