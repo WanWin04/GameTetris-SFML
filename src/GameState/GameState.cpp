@@ -14,7 +14,6 @@ GameState::GameState(sf::RenderWindow& window) : window(window) {
 
 void GameState::Draw(sf::RenderWindow& window) {
    _grid.Draw(window);
-   _grid.Print();
    _currentBlock.Draw(window);
 }
 

@@ -31,15 +31,6 @@ void Grid::Draw(sf::RenderWindow& window) {
     }
 }
 
-void Grid::Print() {
-    for (int row = 0; row < _numRows; ++row) {
-        for (int col = 0; col < _numCols; ++ col) {
-            std::cout << grid[row][col] << " ";
-        }
-        std::cout << std::endl;
-    }
-}
-
 bool Grid::IsOutside(int rowObject, int columnObject) {
     if (rowObject >= 0 && rowObject < _numRows && columnObject >= 0 && columnObject < _numCols) {
         return false;
