@@ -74,6 +74,9 @@ void GameState::HandleGameInput(sf::Keyboard::Key key) {
 
         case sf::Keyboard::Down:
             MoveDown();
+
+            // Solve update score
+            UpdateScores(0, 1);
             break;
 
         default:
@@ -137,7 +140,9 @@ void GameState::LockBlock() {
     }
 
     _nextBlock = RandomBlock();
-    _grid.CleanFullRowGrid();
+
+   // Solve update score
+   UpdateScores(_grid.CleanFullRowGrid(), 0);
 }
 
 bool GameState::IsBlockOutside() {
@@ -170,9 +175,29 @@ void GameState::GameReset() {
     _blocks = GetAllBlocks();
     _currentBlock = RandomBlock();
     _nextBlock = RandomBlock();
+
+    // Solve update score
+    score = 0;
 }
 
 // Update Scores
 void GameState::UpdateScores(int rowsCompleted, int bonus) {
+    switch (rowsCompleted)
+    {
+    case 1:
+        score += 100;
+        break;
+
+    case 2:
+        score += 300;
+        break;
+
+    case 3:
+        score += 500;
     
+    default:
+        break;
+    }
+
+    score += rowsCompleted;
 }
