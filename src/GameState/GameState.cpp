@@ -185,28 +185,28 @@ void GameState::UpdateScores(int rowsCompleted, int bonus) {
     switch (rowsCompleted)
     {
     case 1:
-        score += 100;
+        score += 10;
         break;
 
     case 2:
-        score += 300;
+        score += 100;
         break;
 
     case 3:
-        score += 500;
+        score += 200;
         break;
 
     case 4:
-        score += 700;
+        score += 300;
         break;
 
     case 5:
-        score += 900;
+        score += 400;
         break;
     
     default:
         break;
     }
 
-    score += bonus;
+    score += (++bonus);
 }
