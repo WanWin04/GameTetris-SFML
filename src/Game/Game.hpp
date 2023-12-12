@@ -10,10 +10,13 @@
 #include "../Interface/Next/Next.hpp"
 #include "../Interface/UpdateScore/UpdateScore.hpp"
 #include "../Interface/GameOver/GameOver.hpp"
+#include "../Music/Music.hpp"
 #include "../../global/DEFINITIONS.hpp"
+
 class Game {
 public:
     Game(int width, int height, std::string title);
+    ~Game();
 
     void HandleEvents(sf::RenderWindow& window, GameState& gameState);
     void HandleInput(GameState& gameState);
@@ -28,6 +31,7 @@ private:
     Next _next;
     UpdateScore _updateScore;
     GameOver _gameOver;
+    Music _playMusic;
 };
 
 #endif

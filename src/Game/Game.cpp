@@ -10,6 +10,8 @@ Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138,
 
     GameState gameState(window);
 
+    _playMusic.play();
+
     while (window.isOpen())
     {
         HandleInput(gameState);
@@ -31,10 +33,15 @@ Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138,
 
         if (gameState.gameOver) {
             UpdateAndDrawGameOver(window, gameState);
+            _playMusic.stop();
         }
 
         window.display();
     }
+}
+
+Game::~Game() {
+    _playMusic.stop();
 }
 
 void Game::HandleEvents(sf::RenderWindow& window, GameState& gameState) {

@@ -141,8 +141,12 @@ void GameState::LockBlock() {
 
     _nextBlock = RandomBlock();
 
-   // Solve update score
-   UpdateScores(_grid.CleanFullRowGrid(), 0);
+    // Solve update score and play sound
+    if (_grid.CleanFullRowGrid() > 0) {
+        _playSound.play();
+        UpdateScores(_grid.CleanFullRowGrid(), 0);
+        _playSound.stop();
+    }
 }
 
 bool GameState::IsBlockOutside() {

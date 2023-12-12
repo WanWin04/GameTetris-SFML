@@ -9,6 +9,7 @@
 #include "../Grid/Grid.hpp"
 #include "../Block/Block.hpp"
 #include "../TypeBlocks/TypeBlocks.hpp"
+#include "../Sound/Sound.hpp"
 
 class GameState {
 public:
@@ -32,6 +33,7 @@ private:
     Block _currentBlock;
     Block _nextBlock;
     std::vector<Block> _blocks;
+    Sound _playSound;
 
     // Random Block
     Block RandomBlock();
