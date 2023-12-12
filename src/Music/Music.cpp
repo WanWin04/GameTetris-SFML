@@ -11,7 +11,7 @@ void Music::play() {
 }
 
 void Music::musicThread() {
-    _music.setVolume(50);
+    _music.setVolume(MUSIC_VOLUME);
     _music.play();
 }
 

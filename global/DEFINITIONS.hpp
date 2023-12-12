@@ -28,6 +28,9 @@
 #define WIDTH_GAMEOVER 930
 #define HEIGHT_GAMEOVER 900
 
-#define DELTA_TIME 0.2
+// #define DELTA_TIME 0.2
+
+#define MUSIC_VOLUME 50
+#define SOUND_VOLUME 70
 
 #endif

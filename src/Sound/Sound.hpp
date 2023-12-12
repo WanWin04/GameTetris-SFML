@@ -5,6 +5,8 @@
 
 #include <thread>
 
+#include "../../global/DEFINITIONS.hpp"
+
 class Sound {
 public:
     Sound();

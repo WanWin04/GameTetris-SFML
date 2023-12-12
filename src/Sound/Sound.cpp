@@ -12,7 +12,7 @@ void Sound::play() {
 }
 
 void Sound::soundThread() {
-    _sound.setVolume(70);
+    _sound.setVolume(SOUND_VOLUME);
     _sound.play();
 }
 
