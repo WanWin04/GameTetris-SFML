@@ -1,5 +1,5 @@
-#ifndef GAME_HPP
-#define GAME_HPP
+#ifndef APPLICATION_HPP
+#define APPLICATION_HPP
 
 #include <SFML/Graphics.hpp>
 
@@ -13,10 +13,10 @@
 #include "../Music/Music.hpp"
 #include "../../global/DEFINITIONS.hpp"
 
-class Game {
+class Application {
 public:
-    Game(int width, int height, std::string title);
-    ~Game();
+    Application(int width, int height, std::string title);
+    ~Application();
 
     void HandleEvents(sf::RenderWindow& window, GameState& gameState);
     void HandleInput(GameState& gameState);
@@ -25,7 +25,7 @@ public:
     bool EventActivation(double period);
 
 private:
-    double currentTime;
+    double _currentTime;
     sf::Color _lightGreen;
     Score _score;
     Next _next;

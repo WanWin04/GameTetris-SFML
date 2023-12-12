@@ -1,10 +1,10 @@
-#include "Game.hpp"
+#include "Application.hpp"
 
 #include <iostream>
 
 double keyUpdateTime = 0;
 
-Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138, 1) {
+Application::Application(int width, int height, std::string title) : _lightGreen(28, 177, 138, 1) {
     sf::RenderWindow window(sf::VideoMode(width, height), title);
     window.setFramerateLimit(FRAME_LIMIT);
 
@@ -40,11 +40,11 @@ Game::Game(int width, int height, std::string title) : _lightGreen(28, 177, 138,
     }
 }
 
-Game::~Game() {
+Application::~Application() {
     _playMusic.stop();
 }
 
-void Game::HandleEvents(sf::RenderWindow& window, GameState& gameState) {
+void Application::HandleEvents(sf::RenderWindow& window, GameState& gameState) {
     sf::Event event;
     while (window.pollEvent(event))
     {
@@ -54,20 +54,20 @@ void Game::HandleEvents(sf::RenderWindow& window, GameState& gameState) {
     }
 }
 
-void Game::HandleInput(GameState& gameState) {
+void Application::HandleInput(GameState& gameState) {
     gameState.HandleInput();
 }
 
-void Game::UpdateAndDrawGameOver(sf::RenderWindow& window, GameState& gameState) {
+void Application::UpdateAndDrawGameOver(sf::RenderWindow& window, GameState& gameState) {
     window.draw(_gameOver);
 }
 
-bool Game::EventActivation(double period) {
+bool Application::EventActivation(double period) {
     static sf::Clock clock;
-    currentTime = clock.getElapsedTime().asSeconds();
+    _currentTime = clock.getElapsedTime().asSeconds();
 
-    if ((currentTime - keyUpdateTime) >= period) {
-        keyUpdateTime = currentTime;
+    if ((_currentTime - keyUpdateTime) >= period) {
+        keyUpdateTime = _currentTime;
 
         return true;
     }
