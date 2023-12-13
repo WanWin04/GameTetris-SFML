@@ -8,37 +8,44 @@ Application::Application(int width, int height, std::string title) : _lightGreen
     sf::RenderWindow window(sf::VideoMode(width, height), title);
     window.setFramerateLimit(FRAME_LIMIT);
 
-    GameState gameState(window);
+    if (_background.loadFromFile("resource/Image/sky.png")) {
+        sf::Sprite backgroundSprite(_background);
 
-    _playMusic.play();
+        backgroundSprite.setScale(static_cast<float>(SCREEN_WIDTH) / _background.getSize().x, static_cast<float>(SCREEN_HEIGHT) / _background.getSize().y);
 
-    while (window.isOpen())
-    {
-        HandleInput(gameState);
-        HandleEvents(window, gameState);
+        GameState gameState(window);
 
-        if (EventActivation(TIME_DOWN)) {
-            gameState.MoveDown();
+        _playMusic.play();
+
+        while (window.isOpen())
+        {
+            HandleInput(gameState);
+            HandleEvents(window, gameState);
+
+            if (EventActivation(TIME_DOWN)) {
+                gameState.MoveDown();
+            }
+
+            _updateScore.Update(gameState.score);
+
+            // window.clear(_lightGreen);
+            window.draw(backgroundSprite);
+            gameState.Draw(window);
+
+            window.draw(_score);
+            window.draw(_next);
+
+            window.draw(_updateScore);
+
+            window.draw(_control);
+
+            if (gameState.gameOver) {
+                UpdateAndDrawGameOver(window, gameState);
+                _playMusic.stop();
+            }
+
+            window.display();
         }
-
-        _updateScore.Update(gameState.score);
-
-        window.clear(_lightGreen);
-        gameState.Draw(window);
-
-        window.draw(_score);
-        window.draw(_next);
-
-        window.draw(_updateScore);
-
-        window.draw(_control);
-
-        if (gameState.gameOver) {
-            UpdateAndDrawGameOver(window, gameState);
-            _playMusic.stop();
-        }
-
-        window.display();
     }
 }
 

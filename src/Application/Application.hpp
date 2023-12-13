@@ -34,6 +34,7 @@ private:
     GameOver _gameOver;
     Music _playMusic;
     Control _control;
+    sf::Texture _background;
 };
 
 #endif
