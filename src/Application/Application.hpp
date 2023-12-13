@@ -12,6 +12,7 @@
 #include "../Interface/GameOver/GameOver.hpp"
 #include "../Interface/Control/Control.hpp"
 #include "../Music/Music.hpp"
+#include "../Colors/Colors.hpp"
 #include "../../global/DEFINITIONS.hpp"
 
 class Application {
@@ -35,6 +36,7 @@ private:
     Music _playMusic;
     Control _control;
     sf::Texture _background;
+    sf::RectangleShape _rect;
 };
 
 #endif

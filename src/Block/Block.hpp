@@ -14,7 +14,7 @@ class Block {
 public:
     Block();
 
-    void Draw(sf::RenderWindow& window);
+    void Draw(sf::RenderWindow& window, int rowShelf, int columnShelf);
 
     std::vector<Position> GetPositions();
 

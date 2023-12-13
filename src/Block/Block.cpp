@@ -4,13 +4,13 @@ Block::Block() : _cellSize(CELL_SIZE), _rotationState(0), _rowShelf(0), _columnS
     _colors = getColors(); 
 }
 
-void Block::Draw(sf::RenderWindow& window) {
+void Block::Draw(sf::RenderWindow& window, int rowShelf, int columnShelf) {
     std::vector<Position> states = GetPositions();
 
     for (Position object : states) {
         sf::Color cellColor = _colors[ID];
-        float x = object.column * _cellSize + 1;
-        float y = object.row * _cellSize + 1;
+        float x = object.column * _cellSize + rowShelf;
+        float y = object.row * _cellSize + columnShelf;
         sf::RectangleShape rect(sf::Vector2f(_cellSize - 1, _cellSize - 1));
         rect.setPosition(x, y);
         rect.setFillColor(cellColor);

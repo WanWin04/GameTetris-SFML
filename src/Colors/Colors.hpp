@@ -13,6 +13,7 @@ extern const sf::Color yellow;
 extern const sf::Color purple;
 extern const sf::Color cyan;
 extern const sf::Color blue;
+extern const sf::Color orangeColor;
 
 std::vector<sf::Color> getColors();
 

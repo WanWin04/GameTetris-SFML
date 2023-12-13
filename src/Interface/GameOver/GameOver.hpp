@@ -2,7 +2,7 @@
 #define GAMEOVER_HPP
 
 #include "../UI/UI.hpp"
-// #include "../../Animations/AnimatedText/AnimatedText.hpp"
+#include "../../Colors/Colors.hpp"
 
 class GameOver : public UserInterface {
 public:

@@ -4,16 +4,26 @@
 
 double keyUpdateTime = 0;
 
-Application::Application(int width, int height, std::string title) : _lightGreen(28, 177, 138, 1) {
+Application::Application(int width, int height, std::string title) {
     sf::RenderWindow window(sf::VideoMode(width, height), title);
     window.setFramerateLimit(FRAME_LIMIT);
 
     if (_background.loadFromFile("resource/Image/sky.png")) {
         sf::Sprite backgroundSprite(_background);
 
+        // Set background full screen
         backgroundSprite.setScale(static_cast<float>(SCREEN_WIDTH) / _background.getSize().x, static_cast<float>(SCREEN_HEIGHT) / _background.getSize().y);
 
         GameState gameState(window);
+
+        // Draw rectangle for next block
+        _rect.setSize(sf::Vector2f(WIDTH_RECT_SIZE, HEIGHT_RECT_SIZE));
+        _rect.setFillColor(sf::Color::White);
+        _rect.setPosition(sf::Vector2f(WIDTH_RECT, HEIGHT_RECT));
+
+        _rect.setOutlineColor(orangeColor);
+        _rect.setOutlineThickness(RECT_THICKNESS);
+        // End of setup rectangle
 
         _playMusic.play();
 
@@ -28,12 +38,13 @@ Application::Application(int width, int height, std::string title) : _lightGreen
 
             _updateScore.Update(gameState.score);
 
-            // window.clear(_lightGreen);
             window.draw(backgroundSprite);
-            gameState.Draw(window);
 
             window.draw(_score);
             window.draw(_next);
+            window.draw(_rect);
+
+            gameState.Draw(window);
 
             window.draw(_updateScore);
 

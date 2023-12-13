@@ -14,7 +14,8 @@ GameState::GameState(sf::RenderWindow& window) : window(window) {
 
 void GameState::Draw(sf::RenderWindow& window) {
    _grid.Draw(window);
-   _currentBlock.Draw(window);
+   _currentBlock.Draw(window, 1, 1);
+   _nextBlock.Draw(window, WIDTH_NEXT_BLOCK, HEIGHT_NEXT_BLOCK);
 }
 
 // Random Block
