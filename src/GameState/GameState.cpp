@@ -137,6 +137,7 @@ void GameState::LockBlock() {
 
     if (!IsExistBlock()) {
         gameOver = true;
+        _playMusic.stop();
     }
 
     _nextBlock = RandomBlock();
@@ -182,6 +183,8 @@ void GameState::GameReset() {
 
     // Solve update score
     score = 0;
+
+    _playMusic.play();
 }
 
 // Update Scores

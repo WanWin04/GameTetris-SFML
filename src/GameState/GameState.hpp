@@ -10,6 +10,7 @@
 #include "../Block/Block.hpp"
 #include "../TypeBlocks/TypeBlocks.hpp"
 #include "../Sound/Sound.hpp"
+#include "../Music/Music.hpp"
 
 class GameState {
 public:
@@ -34,6 +35,7 @@ private:
     Block _nextBlock;
     std::vector<Block> _blocks;
     Sound _playSound;
+    Music _playMusic;
 
     // Random Block
     Block RandomBlock();
