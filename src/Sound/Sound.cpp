@@ -7,6 +7,10 @@ Sound::Sound() {
     _sound.setBuffer(_soundBuffer);
 }
 
+Sound::~Sound() {
+    stop();
+}
+
 void Sound::play() {
     _soundThred = std::thread(&Sound::soundThread, this);
 }

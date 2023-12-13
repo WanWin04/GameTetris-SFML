@@ -10,6 +10,7 @@
 class Music {
 public:
     Music();
+    ~Music();
 
     void play();
     void pause();

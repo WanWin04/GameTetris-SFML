@@ -6,6 +6,10 @@ Music::Music() {
     }
 }
 
+Music::~Music() {
+    stop();
+}
+
 void Music::play() {
     _musicThread = std::thread(&Music::musicThread, this);
 }
