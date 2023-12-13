@@ -18,7 +18,7 @@ Application::Application(int width, int height, std::string title) {
 
         // Draw rectangle for next block
         _rect.setSize(sf::Vector2f(WIDTH_RECT_SIZE, HEIGHT_RECT_SIZE));
-        _rect.setFillColor(sf::Color::White);
+        _rect.setFillColor(lightPink);
         _rect.setPosition(sf::Vector2f(WIDTH_RECT, HEIGHT_RECT));
 
         _rect.setOutlineColor(orangeColor);

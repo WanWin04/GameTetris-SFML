@@ -9,6 +9,7 @@ const sf::Color purple(166, 0, 247, 255);
 const sf::Color cyan(21, 204, 209, 255);
 const sf::Color blue(13, 64, 216, 255);
 const sf::Color orangeColor(255, 191, 0);
+const sf::Color lightPink(239, 207, 227);
 
 std::vector<sf::Color> getColors() {
     return { darkGrey, green, red, orange, yellow, purple, cyan, blue} ;

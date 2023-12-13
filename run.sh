@@ -12,3 +12,5 @@ g++ -c $CPP_FILE -I $INCLUDE_DIR
 g++ $OBJECT_FILE -o $EXECUTABLE -L $LIB_DIR -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network
 
 ./$EXECUTABLE
+
+rm *.o *.exe
