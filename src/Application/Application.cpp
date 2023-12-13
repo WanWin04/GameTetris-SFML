@@ -31,6 +31,8 @@ Application::Application(int width, int height, std::string title) : _lightGreen
 
         window.draw(_updateScore);
 
+        window.draw(_control);
+
         if (gameState.gameOver) {
             UpdateAndDrawGameOver(window, gameState);
             _playMusic.stop();

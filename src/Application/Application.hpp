@@ -10,6 +10,7 @@
 #include "../Interface/Next/Next.hpp"
 #include "../Interface/UpdateScore/UpdateScore.hpp"
 #include "../Interface/GameOver/GameOver.hpp"
+#include "../Interface/Control/Control.hpp"
 #include "../Music/Music.hpp"
 #include "../../global/DEFINITIONS.hpp"
 
@@ -32,6 +33,7 @@ private:
     UpdateScore _updateScore;
     GameOver _gameOver;
     Music _playMusic;
+    Control _control;
 };
 
 #endif

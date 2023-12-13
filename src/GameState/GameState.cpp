@@ -61,18 +61,22 @@ void GameState::HandleInput() {
 void GameState::HandleGameInput(sf::Keyboard::Key key) {
     switch (key) {
         case sf::Keyboard::Left:
+        case sf::Keyboard::A:
             MoveLeft();
             break;
 
         case sf::Keyboard::Right:
+        case sf::Keyboard::D:
             MoveRight();
             break;
 
         case sf::Keyboard::Up:
+        case sf::Keyboard::W:
             RotatingBlock();
             break;
 
         case sf::Keyboard::Down:
+        case sf::Keyboard::S:
             MoveDown();
 
             // Solve update score
