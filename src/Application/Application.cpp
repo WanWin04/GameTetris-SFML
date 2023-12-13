@@ -17,13 +17,7 @@ Application::Application(int width, int height, std::string title) {
         GameState gameState(window);
 
         // Draw rectangle for next block
-        _rect.setSize(sf::Vector2f(WIDTH_RECT_SIZE, HEIGHT_RECT_SIZE));
-        _rect.setFillColor(lightPink);
-        _rect.setPosition(sf::Vector2f(WIDTH_RECT, HEIGHT_RECT));
-
-        _rect.setOutlineColor(orangeColor);
-        _rect.setOutlineThickness(RECT_THICKNESS);
-        // End of setup rectangle
+        SetNextBlock();
 
         _playMusic.play();
 
@@ -52,6 +46,7 @@ Application::Application(int width, int height, std::string title) {
 
             if (gameState.gameOver) {
                 UpdateAndDrawGameOver(window, gameState);
+                window.draw(_medal);
                 _playMusic.stop();
             }
 
@@ -72,6 +67,15 @@ void Application::HandleEvents(sf::RenderWindow& window, GameState& gameState) {
             window.close();
         }
     }
+}
+
+void Application::SetNextBlock() {
+    _rect.setSize(sf::Vector2f(WIDTH_RECT_SIZE, HEIGHT_RECT_SIZE));
+    _rect.setFillColor(sf::Color::White);
+    _rect.setPosition(sf::Vector2f(WIDTH_RECT, HEIGHT_RECT));
+
+    _rect.setOutlineColor(orangeColor);
+    _rect.setOutlineThickness(RECT_THICKNESS);
 }
 
 void Application::HandleInput(GameState& gameState) {

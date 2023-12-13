@@ -73,6 +73,7 @@ void Grid::CleanRowGrid(int rowGrid) {
     for (int column = 0; column < _numCols; ++column) {
         grid[rowGrid][column] = 0;
     }
+    sf::sleep(sf::milliseconds(100));
 }
 
 void Grid::CompensationRow(int rowGrid, int numRows) {

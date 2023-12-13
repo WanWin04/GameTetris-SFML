@@ -29,6 +29,9 @@
 #define WIDTH_RECT 900
 #define HEIGHT_RECT 600
 
+#define X_MEDAL 1000
+#define Y_MEDAL 170
+
 #define WIDTH_NEXT_BLOCK 880
 #define HEIGHT_NEXT_BLOCK 650
 

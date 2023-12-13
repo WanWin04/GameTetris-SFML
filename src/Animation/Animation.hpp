@@ -1,40 +1,37 @@
-// #ifndef ANIMATION_H
-// #define ANIMATION_H
+#ifndef ANIMATION_H
+#define ANIMATION_H
 
-// #include "SFML/Graphics.hpp"
+#include "SFML/Graphics.hpp"
 
-// #include <fstream>
+#include <fstream>
 
-// class Animation {
-// public:
-//     Animation(int i_animation_speed, int i_frame_width, int total_frame);
+class Animation {
+public:
+    Animation(int i_animation_speed, int i_frame_width, int total_frame);
 
-//     bool update();
+    bool update();
 
-//     void drawExplosion(int i_x, int i_y, sf::RenderTarget *target, sf::Texture texture);
-//     void drawEnemyExplosion(int i_x, int i_y, sf::RenderTarget *target, sf::Texture texture, int type);
-//     void drawBossExplosion(int i_x, int i_y, sf::RenderTarget *target, sf::Texture texture);
-//     void drawDisasterExplosion(int i_x, int i_y, sf::RenderTarget *target, sf::Texture texture);
+    void drawExplosion(int i_x, int i_y, sf::RenderTarget *target, sf::Texture texture);
 
-//     void reset();
+    void reset();
 
-//     // setter
-//     void setVars(int animation_iterator,
-//                  int animation_speed,
-//                  int current_frame,
-//                  int frame_width);
+    // setter
+    void setVars(int animation_iterator,
+                 int animation_speed,
+                 int current_frame,
+                 int frame_width);
 
-//     int getCurrentFrame();
+    int getCurrentFrame();
 
-// private:
-//     int animation_iterator;
-//     int animation_speed;
-//     int current_frame;
-//     int frame_width;
+private:
+    int animation_iterator;
+    int animation_speed;
+    int current_frame;
+    int frame_width;
 
-//     int total_frames;
+    int total_frames;
 
-//     sf::Sprite sprite;
-// };
+    sf::Sprite sprite;
+};
 
-// #endif
+#endif

@@ -11,6 +11,7 @@
 #include "../Interface/UpdateScore/UpdateScore.hpp"
 #include "../Interface/GameOver/GameOver.hpp"
 #include "../Interface/Control/Control.hpp"
+#include "../Interface/Medal/Medal.hpp"
 #include "../Music/Music.hpp"
 #include "../Colors/Colors.hpp"
 #include "../../global/DEFINITIONS.hpp"
@@ -20,6 +21,7 @@ public:
     Application(int width, int height, std::string title);
     ~Application();
 
+    void SetNextBlock();
     void HandleEvents(sf::RenderWindow& window, GameState& gameState);
     void HandleInput(GameState& gameState);
     void UpdateAndDrawGameOver(sf::RenderWindow& window, GameState& gameState);
@@ -37,6 +39,7 @@ private:
     Control _control;
     sf::Texture _background;
     sf::RectangleShape _rect;
+    Medal _medal;
 };
 
 #endif

@@ -5,7 +5,9 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
+#include "../Animation/Animation.hpp"
 #include "../../global/DEFINITIONS.hpp"
 
 class Grid {
@@ -32,7 +34,7 @@ private:
     // Functions 
     bool IsFullBlock(int rowGrid);
     void CleanRowGrid(int rowGrid);
-    void CompensationRow(int rowGrid, int numRows);
+    void CompensationRow(int rowGrid, int numRows); 
 };
 
 #endif
