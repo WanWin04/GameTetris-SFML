@@ -14,6 +14,25 @@ GameState::GameState(sf::RenderWindow& window) : window(window) {
 
 void GameState::Draw(sf::RenderWindow& window) {
    _grid.Draw(window);
+
+    // Animation Game Over
+    if (gameOver) {
+        bool isChange = true;
+
+        for (int row = 0; row < _grid.GetNumRows(); ++row) {
+            for (int col = 0; col < _grid.GetNumColumns(); ++col) {
+                if (_grid.grid[row][col] == 10) {
+                    float x = col * _grid.GetCellSize() + 1;
+                    float y = row * _grid.GetCellSize() + 1;
+                    sf::RectangleShape rect(sf::Vector2f(_grid.GetCellSize() - 1, _grid.GetCellSize() - 1));
+                    rect.setPosition(x, y);
+                    rect.setFillColor(sf::Color::White);
+                    window.draw(rect);
+                }
+            }
+        }
+    }
+
    _currentBlock.Draw(window, 1, 1);
    _nextBlock.Draw(window, WIDTH_NEXT_BLOCK, HEIGHT_NEXT_BLOCK);
 
@@ -149,6 +168,14 @@ void GameState::LockBlock() {
         gameOver = true;
         _playMusic.stop();
         _time.Pause();
+
+        for (int row = 0; row < _grid.GetNumRows(); ++row) {
+            for (int col = 0; col < _grid.GetNumColumns(); ++col) {
+                if (_grid.grid[row][col] != 0) {
+                    _grid.grid[row][col] = 10;
+                }
+            }
+        }
     }
 
     _nextBlock = RandomBlock();

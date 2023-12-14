@@ -17,10 +17,17 @@ public:
     void Initialize();
     void Draw(sf::RenderWindow& window);
 
+    void Print();
+
     int CleanFullRowGrid();
 
     bool IsOutside(int rowObject, int columnObject);
     bool IsEmpty(int rowObject, int columnObject);
+
+    // getter
+    int GetNumRows() const;
+    int GetNumColumns() const;
+    int GetCellSize() const;
 
     // variables
     int grid[NUMBER_ROWS][NUMBER_COLUMNS];

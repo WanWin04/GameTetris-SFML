@@ -38,7 +38,7 @@ OBlock::OBlock() {
 
     cells[0] = {Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)};
 
-    FallBlock(0, 4);
+    FallBlock(0, 3);
 }
 
 SBlock::SBlock() {

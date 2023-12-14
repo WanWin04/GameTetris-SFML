@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 
 #include <string>
+#include <vector>
+#include <iostream>
 
 #include "../GameState/GameState.hpp"
 #include "../Interface/Score/Score.hpp"
@@ -14,6 +16,7 @@
 #include "../Interface/Medal/Medal.hpp"
 #include "../Music/Music.hpp"
 #include "../Colors/Colors.hpp"
+#include "../Animation/Animation.hpp"
 #include "../../global/DEFINITIONS.hpp"
 
 class Application {

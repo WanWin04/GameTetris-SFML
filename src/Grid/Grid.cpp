@@ -82,3 +82,17 @@ void Grid::CompensationRow(int rowGrid, int numRows) {
         grid[rowGrid][column] = 0;
     }
 }
+
+int Grid::GetNumRows() const { return _numRows; }
+int Grid::GetNumColumns() const { return _numCols; }
+int Grid::GetCellSize() const { return _cellSize; }
+
+void Grid::Print() {
+    for (int row = 0; row < _numRows; ++row) {
+        for (int col = 0; col < _numCols; ++col) {
+            std::cout << grid[row][col] << std::endl;
+        }
+        std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}

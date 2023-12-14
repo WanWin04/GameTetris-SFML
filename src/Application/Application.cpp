@@ -1,7 +1,5 @@
 #include "Application.hpp"
 
-#include <iostream>
-
 double keyUpdateTime = 0;
 
 Application::Application(int width, int height, std::string title) {
