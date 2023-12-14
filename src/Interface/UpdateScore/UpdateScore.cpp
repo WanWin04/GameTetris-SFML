@@ -1,7 +1,7 @@
 #include "UpdateScore.hpp"
 
 UpdateScore::UpdateScore(const sf::Vector2f& position) : UserInterface(position) {
-    if (!_font.loadFromFile("resource/Font/monogram.ttf")) {
+    if (!_font.loadFromFile("resource/Font/Marker-Felt.ttf")) {
         return;
     }
 
