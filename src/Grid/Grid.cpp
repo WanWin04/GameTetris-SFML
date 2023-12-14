@@ -20,9 +20,9 @@ void Grid::Draw(sf::RenderWindow& window) {
             int cellValue = grid[row][col];
             
             sf::Color cellColor = _colors[cellValue];
-            float x = col * _cellSize + 1;
-            float y = row * _cellSize + 1;
-            sf::RectangleShape rect(sf::Vector2f(_cellSize - 1, _cellSize - 1));
+            float x = col * _cellSize + PADDING;
+            float y = row * _cellSize + PADDING;
+            sf::RectangleShape rect(sf::Vector2f(_cellSize - OFFSET, _cellSize - OFFSET));
             rect.setPosition(x, y);
             rect.setFillColor(cellColor);
 
@@ -86,13 +86,3 @@ void Grid::CompensationRow(int rowGrid, int numRows) {
 int Grid::GetNumRows() const { return _numRows; }
 int Grid::GetNumColumns() const { return _numCols; }
 int Grid::GetCellSize() const { return _cellSize; }
-
-void Grid::Print() {
-    for (int row = 0; row < _numRows; ++row) {
-        for (int col = 0; col < _numCols; ++col) {
-            std::cout << grid[row][col] << std::endl;
-        }
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
-}

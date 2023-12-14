@@ -15,16 +15,26 @@ GameState::GameState(sf::RenderWindow& window) : window(window) {
 void GameState::Draw(sf::RenderWindow& window) {
    _grid.Draw(window);
 
+    _currentBlock.Draw(window, PADDING, PADDING);
+
     // Animation Game Over
     if (gameOver) {
-        bool isChange = true;
+        // Set value of grid is 10
+        for (int row = 0; row < _grid.GetNumRows(); ++row) {
+            for (int col = 0; col < _grid.GetNumColumns(); ++col) {
+                if (_grid.grid[row][col] != 0) {
+                    _grid.grid[row][col] = 10;
+                }
+            }
+        }
 
+        // Change color of all blocks in grid
         for (int row = 0; row < _grid.GetNumRows(); ++row) {
             for (int col = 0; col < _grid.GetNumColumns(); ++col) {
                 if (_grid.grid[row][col] == 10) {
-                    float x = col * _grid.GetCellSize() + 1;
-                    float y = row * _grid.GetCellSize() + 1;
-                    sf::RectangleShape rect(sf::Vector2f(_grid.GetCellSize() - 1, _grid.GetCellSize() - 1));
+                    float x = col * _grid.GetCellSize() + PADDING;
+                    float y = row * _grid.GetCellSize() + PADDING;
+                    sf::RectangleShape rect(sf::Vector2f(_grid.GetCellSize() - OFFSET, _grid.GetCellSize() - OFFSET));
                     rect.setPosition(x, y);
                     rect.setFillColor(sf::Color::White);
                     window.draw(rect);
@@ -33,8 +43,22 @@ void GameState::Draw(sf::RenderWindow& window) {
         }
     }
 
-   _currentBlock.Draw(window, 1, 1);
-   _nextBlock.Draw(window, WIDTH_NEXT_BLOCK, HEIGHT_NEXT_BLOCK);
+    
+
+    switch (_nextBlock.ID)
+    {
+        case 3:
+            _nextBlock.Draw(window, 855, 665);
+            break;
+
+        case 4:
+            _nextBlock.Draw(window, 890, 650);
+            break;
+
+        default:
+            _nextBlock.Draw(window, WIDTH_NEXT_BLOCK, HEIGHT_NEXT_BLOCK);
+            break;
+    }
 
    // Time
    _time.UpdateTime();
@@ -168,17 +192,10 @@ void GameState::LockBlock() {
         gameOver = true;
         _playMusic.stop();
         _time.Pause();
-
-        for (int row = 0; row < _grid.GetNumRows(); ++row) {
-            for (int col = 0; col < _grid.GetNumColumns(); ++col) {
-                if (_grid.grid[row][col] != 0) {
-                    _grid.grid[row][col] = 10;
-                }
-            }
-        }
+    } else {
+        _nextBlock = RandomBlock();
     }
 
-    _nextBlock = RandomBlock();
     int rowCompleted = _grid.CleanFullRowGrid();
 
     // Solve update score and play sound

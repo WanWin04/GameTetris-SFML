@@ -17,8 +17,6 @@ public:
     void Initialize();
     void Draw(sf::RenderWindow& window);
 
-    void Print();
-
     int CleanFullRowGrid();
 
     bool IsOutside(int rowObject, int columnObject);

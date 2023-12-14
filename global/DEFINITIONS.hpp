@@ -2,7 +2,7 @@
 #define DEFINITIONS_HPP
 
 #define SCREEN_WIDTH 1500
-#define SCREEN_HEIGHT 1400
+#define SCREEN_HEIGHT 1500
 
 #define FRAME_LIMIT 60
 
@@ -11,6 +11,9 @@
 #define CELL_SIZE 50
 
 #define TIME_DOWN 0.5
+
+#define PADDING 30
+#define OFFSET 1
 
 #define CHARACTER_SIZE 35
 #define CHARACTER_SCORE_SIZE 45
@@ -49,7 +52,7 @@
 #define HEIGHT_TIME 1250
 
 #define WIDTH_CONTROL 80
-#define HEIGHT_CONTROL 1250
+#define HEIGHT_CONTROL 1300
 
 #define MUSIC_VOLUME 50
 #define SOUND_VOLUME 70
