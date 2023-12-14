@@ -47,6 +47,7 @@ Application::Application(int width, int height, std::string title) {
             if (gameState.gameOver) {
                 UpdateAndDrawGameOver(window, gameState);
                 window.draw(_medal);
+                                
                 _playMusic.stop();
             }
 

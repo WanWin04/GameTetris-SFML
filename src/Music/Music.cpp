@@ -17,6 +17,11 @@ void Music::play() {
 void Music::musicThread() {
     _music.setVolume(MUSIC_VOLUME);
     _music.play();
+
+    // play music again
+    while (_music.getStatus() == sf::Music::Playing) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    }
 }
 
 void Music::pause() {

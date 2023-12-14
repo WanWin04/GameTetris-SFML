@@ -11,6 +11,7 @@
 #include "../TypeBlocks/TypeBlocks.hpp"
 #include "../Sound/Sound.hpp"
 #include "../Music/Music.hpp"
+#include "../Interface/Time/Time.hpp"
 
 class GameState {
 public:
@@ -24,6 +25,8 @@ public:
     // Handle Block
     void MoveDown();
 
+    void LockBlock();
+
     // variables
     bool gameOver;
     int score;
@@ -36,6 +39,7 @@ private:
     std::vector<Block> _blocks;
     Sound _playSound;
     Music _playMusic;
+    Time _time;
 
     // Random Block
     Block RandomBlock();
@@ -48,7 +52,6 @@ private:
     void MoveLeft();
     void MoveRight();
     void RotatingBlock();
-    void LockBlock();
 
     bool IsBlockOutside();
     bool IsExistBlock();

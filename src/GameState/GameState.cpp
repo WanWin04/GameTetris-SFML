@@ -16,6 +16,10 @@ void GameState::Draw(sf::RenderWindow& window) {
    _grid.Draw(window);
    _currentBlock.Draw(window, 1, 1);
    _nextBlock.Draw(window, WIDTH_NEXT_BLOCK, HEIGHT_NEXT_BLOCK);
+
+   // Time
+   _time.UpdateTime();
+   window.draw(_time);
 }
 
 // Random Block
@@ -48,6 +52,7 @@ void GameState::HandleInput() {
                 if (gameOver) {
                     gameOver = false;
                     GameReset();
+                    _time.Reset();
                 } else {
                     HandleGameInput(event.key.code);
                 }
@@ -143,14 +148,16 @@ void GameState::LockBlock() {
     if (!IsExistBlock()) {
         gameOver = true;
         _playMusic.stop();
+        _time.Pause();
     }
 
     _nextBlock = RandomBlock();
+    int rowCompleted = _grid.CleanFullRowGrid();
 
     // Solve update score and play sound
-    if (_grid.CleanFullRowGrid() > 0) {
+    if (rowCompleted > 0) {
         _playSound.play();
-        UpdateScores(_grid.CleanFullRowGrid(), 0);
+        UpdateScores(rowCompleted, 0);
         _playSound.stop();
     }
 }
@@ -197,28 +204,24 @@ void GameState::UpdateScores(int rowsCompleted, int bonus) {
     switch (rowsCompleted)
     {
     case 1:
-        score += 10;
-        break;
-
-    case 2:
         score += 100;
         break;
 
-    case 3:
-        score += 200;
-        break;
-
-    case 4:
+    case 2:
         score += 300;
         break;
 
-    case 5:
-        score += 400;
+    case 3:
+        score += 500;
+        break;
+
+    case 4:
+        score += 700;
         break;
     
     default:
         break;
     }
 
-    score += (++bonus);
+    score += bonus;
 }

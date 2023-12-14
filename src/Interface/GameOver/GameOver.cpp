@@ -7,7 +7,7 @@ GameOver::GameOver(const sf::Vector2f& position) : UserInterface(position) {
     }
 
     _text.setFont(_font);
-    _text.setCharacterSize(CHARACTER_SIZE);
+    _text.setCharacterSize(CHARACTER_GAMEOVER_SIZE);
     _text.setFillColor(orangeColor);
     _text.setString("GAME OVER");
 }
