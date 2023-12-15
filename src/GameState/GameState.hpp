@@ -52,6 +52,7 @@ private:
     void MoveLeft();
     void MoveRight();
     void RotatingBlock();
+    void SlideDown();
 
     bool IsBlockOutside();
     bool IsExistBlock();

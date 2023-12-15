@@ -124,6 +124,10 @@ void GameState::HandleGameInput(sf::Keyboard::Key key) {
             UpdateScores(0, 1);
             break;
 
+        case sf::Keyboard::Space:
+            SlideDown();
+            break;
+
         case sf::Keyboard::X:
             window.close();
             break;
@@ -172,6 +176,19 @@ void GameState::RotatingBlock() {
 
         if (IsBlockOutside() || !IsExistBlock()) {
             _currentBlock.LimitRotation();
+        }
+    }
+}
+
+void GameState::SlideDown() {
+    if (!gameOver) {
+        while (IsExistBlock()) {
+            _currentBlock.FallBlock(1, 0);
+        }
+
+        if (IsBlockOutside() || !IsExistBlock()) {
+            _currentBlock.FallBlock(-1, 0);
+            LockBlock();
         }
     }
 }
