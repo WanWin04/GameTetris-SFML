@@ -7,7 +7,7 @@ Time::Time(const sf::Vector2f& position) : UserInterface(position), _paused(fals
 
     _text.setFont(_font);
     _text.setCharacterSize(CHARACTER_SCORE_SIZE);
-    _text.setFillColor(orangeColor);
+    _text.setFillColor(sf::Color::White);
 
     _elapsedTime = sf::Time::Zero;
     _totalPausedTime = sf::Time::Zero;
@@ -31,7 +31,7 @@ void Time::UpdateTime() {
     }
 
     std::ostringstream ss;
-    ss << std::setfill('0') << std::setw(2) << _hours << ":" << std::setw(2) << _minutes << ":" << std::setw(2) << _seconds;
+    ss << "Time : " << std::setfill('0') << std::setw(2) << _hours << ":" << std::setw(2) << _minutes << ":" << std::setw(2) << _seconds;
     _text.setString(ss.str());
 }
 

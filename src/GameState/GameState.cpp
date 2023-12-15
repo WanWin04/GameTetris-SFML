@@ -19,19 +19,11 @@ void GameState::Draw(sf::RenderWindow& window) {
 
     // Animation Game Over
     if (gameOver) {
-        // Set value of grid is 10
-        for (int row = 0; row < _grid.GetNumRows(); ++row) {
-            for (int col = 0; col < _grid.GetNumColumns(); ++col) {
-                if (_grid.grid[row][col] != 0) {
-                    _grid.grid[row][col] = 10;
-                }
-            }
-        }
-
+        _currentBlock.ID = 0;
         // Change color of all blocks in grid
         for (int row = 0; row < _grid.GetNumRows(); ++row) {
             for (int col = 0; col < _grid.GetNumColumns(); ++col) {
-                if (_grid.grid[row][col] == 10) {
+                if (_grid.grid[row][col] != 0) {
                     float x = col * _grid.GetCellSize() + PADDING;
                     float y = row * _grid.GetCellSize() + PADDING;
                     sf::RectangleShape rect(sf::Vector2f(_grid.GetCellSize() - OFFSET, _grid.GetCellSize() - OFFSET));
@@ -130,6 +122,10 @@ void GameState::HandleGameInput(sf::Keyboard::Key key) {
 
             // Solve update score
             UpdateScores(0, 1);
+            break;
+
+        case sf::Keyboard::X:
+            window.close();
             break;
 
         default:

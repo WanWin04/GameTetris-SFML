@@ -14,6 +14,7 @@
 #include "../Interface/GameOver/GameOver.hpp"
 #include "../Interface/Control/Control.hpp"
 #include "../Interface/Medal/Medal.hpp"
+#include "../Interface/PlayAgain/PlayAgain.hpp"
 #include "../Music/Music.hpp"
 #include "../Colors/Colors.hpp"
 #include "../Animation/Animation.hpp"
@@ -43,6 +44,7 @@ private:
     sf::Texture _background;
     sf::RectangleShape _rect;
     Medal _medal;
+    PlayAgain _playAgain;
 };
 
 #endif

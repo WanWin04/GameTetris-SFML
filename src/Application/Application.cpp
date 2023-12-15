@@ -83,6 +83,7 @@ void Application::HandleInput(GameState& gameState) {
 
 void Application::UpdateAndDrawGameOver(sf::RenderWindow& window, GameState& gameState) {
     window.draw(_gameOver);
+    window.draw(_playAgain);
 }
 
 bool Application::EventActivation(double period) {
