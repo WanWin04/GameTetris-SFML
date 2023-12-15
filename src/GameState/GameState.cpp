@@ -263,5 +263,5 @@ void GameState::UpdateScores(int rowsCompleted, int bonus) {
         break;
     }
 
-    score += bonus;
+    score += (bonus - 1);
 }
