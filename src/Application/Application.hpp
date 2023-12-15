@@ -15,7 +15,6 @@
 #include "../Interface/Control/Control.hpp"
 #include "../Interface/Medal/Medal.hpp"
 #include "../Interface/PlayAgain/PlayAgain.hpp"
-#include "../Music/Music.hpp"
 #include "../Colors/Colors.hpp"
 #include "../Animation/Animation.hpp"
 #include "../../global/DEFINITIONS.hpp"
@@ -23,7 +22,6 @@
 class Application {
 public:
     Application(int width, int height, std::string title);
-    ~Application();
 
     void SetNextBlock();
     void HandleEvents(sf::RenderWindow& window, GameState& gameState);
@@ -32,6 +30,9 @@ public:
 
     bool EventActivation(double period);
 
+    // variables
+    double keyUpdateTime = 0;
+
 private:
     double _currentTime;
     sf::Color _lightGreen;
@@ -39,7 +40,6 @@ private:
     Next _next;
     UpdateScore _updateScore;
     GameOver _gameOver;
-    Music _playMusic;
     Control _control;
     sf::Texture _background;
     sf::RectangleShape _rect;

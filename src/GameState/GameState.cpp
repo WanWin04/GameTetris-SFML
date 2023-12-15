@@ -10,6 +10,8 @@ GameState::GameState(sf::RenderWindow& window) : window(window) {
 
     gameOver = false;
     score = 0;
+
+    _playMusic.play();
 }
 
 void GameState::Draw(sf::RenderWindow& window) {
@@ -34,8 +36,6 @@ void GameState::Draw(sf::RenderWindow& window) {
             }
         }
     }
-
-    
 
     switch (_nextBlock.ID)
     {

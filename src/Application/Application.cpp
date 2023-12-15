@@ -1,7 +1,5 @@
 #include "Application.hpp"
 
-double keyUpdateTime = 0;
-
 Application::Application(int width, int height, std::string title) {
     sf::RenderWindow window(sf::VideoMode(width, height), title);
     window.setFramerateLimit(FRAME_LIMIT);
@@ -16,8 +14,6 @@ Application::Application(int width, int height, std::string title) {
 
         // Draw rectangle for next block
         SetNextBlock();
-
-        _playMusic.play();
 
         while (window.isOpen())
         {
@@ -44,18 +40,12 @@ Application::Application(int width, int height, std::string title) {
 
             if (gameState.gameOver) {
                 UpdateAndDrawGameOver(window, gameState);
-                window.draw(_medal);
-                                
-                _playMusic.stop();
+                window.draw(_medal);            
             }
 
             window.display();
         }
     }
-}
-
-Application::~Application() {
-    _playMusic.stop();
 }
 
 void Application::HandleEvents(sf::RenderWindow& window, GameState& gameState) {
