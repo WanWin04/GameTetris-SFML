@@ -261,24 +261,22 @@ void GameState::UpdateScores(int rowsCompleted, int bonus) {
     switch (rowsCompleted)
     {
     case 1:
-        score += 101;
+        score += 100;
         break;
 
     case 2:
-        score += 301;
+        score += 300;
         break;
 
     case 3:
-        score += 501;
+        score += 500;
         break;
 
     case 4:
-        score += 701;
+        score += 700;
         break;
     
     default:
         break;
     }
-
-    score += (bonus - 1);
 }
