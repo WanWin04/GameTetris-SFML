@@ -23,6 +23,8 @@ public:
     void RotateBlock();
     void LimitRotation();
 
+    Block& operator=(const Block& other);
+
     // variables
     int ID;
     std::map<int, std::vector<Position>> cells;

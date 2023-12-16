@@ -21,20 +21,7 @@ void GameState::Draw(sf::RenderWindow& window) {
 
     // Animation Game Over
     if (gameOver) {
-        _currentBlock.ID = 0;
-        // Change color of all blocks in grid
-        for (int row = 0; row < _grid.GetNumRows(); ++row) {
-            for (int col = 0; col < _grid.GetNumColumns(); ++col) {
-                if (_grid.grid[row][col] != 0) {
-                    float x = col * _grid.GetCellSize() + PADDING;
-                    float y = row * _grid.GetCellSize() + PADDING;
-                    sf::RectangleShape rect(sf::Vector2f(_grid.GetCellSize() - OFFSET, _grid.GetCellSize() - OFFSET));
-                    rect.setPosition(x, y);
-                    rect.setFillColor(sf::Color::White);
-                    window.draw(rect);
-                }
-            }
-        }
+        Freeze();
     }
 
     switch (_nextBlock.ID)
@@ -51,6 +38,9 @@ void GameState::Draw(sf::RenderWindow& window) {
             _nextBlock.Draw(window, WIDTH_NEXT_BLOCK, HEIGHT_NEXT_BLOCK);
             break;
     }
+
+    _ghostBlock = _currentBlock;
+    Ghost(window);
 
    // Time
    _time.UpdateTime();
@@ -278,5 +268,56 @@ void GameState::UpdateScores(int rowsCompleted, int bonus) {
     
     default:
         break;
+    }
+}
+
+bool GameState::IsGhostOutside() {
+    std::vector<Position> states = _ghostBlock.GetPositions();
+
+    for (Position object : states) {
+        if (_grid.IsOutside(object.row, object.column)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool GameState::IsExistGhost() {
+    std::vector<Position> states = _ghostBlock.GetPositions();
+
+    for (Position object : states) {
+        if (!_grid.IsEmpty(object.row, object.column)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void GameState::Ghost(sf::RenderWindow& window) {
+    while (!IsGhostOutside() && IsExistGhost()) {
+        _ghostBlock.FallBlock(1, 0);
+    }
+
+    if (IsGhostOutside() || !IsExistGhost()) {
+        _ghostBlock.FallBlock(-1, 0);
+    }
+
+    _ghostBlock.Draw(window, PADDING, PADDING);
+}
+
+void GameState::Freeze() {
+    _currentBlock.ID = 0;
+    // Change color of all blocks in grid
+    for (int row = 0; row < _grid.GetNumRows(); ++row) {
+        for (int col = 0; col < _grid.GetNumColumns(); ++col) {
+            if (_grid.grid[row][col] != 0) {
+                float x = col * _grid.GetCellSize() + PADDING;
+                float y = row * _grid.GetCellSize() + PADDING;
+                sf::RectangleShape rect(sf::Vector2f(_grid.GetCellSize() - OFFSET, _grid.GetCellSize() - OFFSET));
+                rect.setPosition(x, y);
+                rect.setFillColor(sf::Color::White);
+                window.draw(rect);
+            }
+        }
     }
 }

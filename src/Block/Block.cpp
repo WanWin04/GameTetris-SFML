@@ -50,3 +50,32 @@ void Block::LimitRotation() {
         _rotationState = cells.size() - 1;
     }
 }
+
+Block& Block::operator=(const Block& other) {
+    if (this != &other) {  // Kiểm tra để tránh tự gán vào chính bản thân
+        ID = other.ID;
+        _cellSize = other._cellSize;
+        _rotationState = other._rotationState;
+        _rowShelf = other._rowShelf;
+        _columnShelf = other._columnShelf;
+        _colors = other._colors;
+
+        // Xóa nội dung hiện tại của cells
+        cells.clear();
+
+        // Copy các cells từ other.cells sang cells của đối tượng hiện tại
+        for (const auto& pair : other.cells) {
+            int state = pair.first;
+            const auto& positions = pair.second;
+
+            std::vector<Position> newPositions;
+            for (const auto& pos : positions) {
+                newPositions.push_back(pos);
+            }
+
+            cells[state] = newPositions;
+        }
+    }
+
+    return *this;
+}

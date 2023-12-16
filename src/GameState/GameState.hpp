@@ -27,6 +27,10 @@ public:
 
     void LockBlock();
 
+    void Ghost(sf::RenderWindow& window);
+
+    void Freeze();
+
     // variables
     bool gameOver;
     int score;
@@ -40,6 +44,7 @@ private:
     Sound _playSound;
     Music _playMusic;
     Time _time;
+    Block _ghostBlock;
 
     // Random Block
     Block RandomBlock();
@@ -56,6 +61,9 @@ private:
 
     bool IsBlockOutside();
     bool IsExistBlock();
+
+    bool IsGhostOutside();
+    bool IsExistGhost();
 
     // Game Reset
     void GameReset();
