@@ -15,6 +15,8 @@
 #include "../Interface/Control/Control.hpp"
 #include "../Interface/Medal/Medal.hpp"
 #include "../Interface/PlayAgain/PlayAgain.hpp"
+#include "../Interface/Level/Level.hpp"
+#include "../Interface/UpdateLevel/UpdateLevel.hpp"
 #include "../Colors/Colors.hpp"
 #include "../Animation/Animation.hpp"
 #include "../../global/DEFINITIONS.hpp"
@@ -32,6 +34,7 @@ public:
 
     // variables
     double keyUpdateTime = 0;
+    int level = 1;
 
 private:
     double _currentTime;
@@ -45,6 +48,8 @@ private:
     sf::RectangleShape _rect;
     Medal _medal;
     PlayAgain _playAgain;
+    Level _level;
+    UpdateLevel _updateLevel;
 };
 
 #endif

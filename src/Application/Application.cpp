@@ -12,6 +12,9 @@ Application::Application(int width, int height, std::string title) {
 
         GameState gameState(window);
 
+        float var  = TIME_DOWN;
+        int index = 100;
+
         // Draw rectangle for next block
         SetNextBlock();
 
@@ -20,11 +23,18 @@ Application::Application(int width, int height, std::string title) {
             HandleInput(gameState);
             HandleEvents(window, gameState);
 
-            if (EventActivation(TIME_DOWN)) {
+            if (gameState.score >= index) {
+                index += 100;
+                var -= 0.1;
+                level++;
+            }
+
+            if (EventActivation(var)) {
                 gameState.MoveDown();
             }
 
             _updateScore.Update(gameState.score);
+            _updateLevel.Update(level);
 
             window.draw(backgroundSprite);
 
@@ -37,6 +47,9 @@ Application::Application(int width, int height, std::string title) {
             window.draw(_updateScore);
 
             window.draw(_control);
+
+            window.draw(_level);
+            window.draw(_updateLevel);
 
             if (gameState.gameOver) {
                 UpdateAndDrawGameOver(window, gameState);
